@@ -13,6 +13,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/default/configuration.nix
+        inputs.disko.nixosModules.disko
       ];
     };
   };
