@@ -18,6 +18,7 @@
   networking.hostName = "Wu"; # Define your hostname.
 
   environment.systemPackages = with pkgs; [
+    soulseekqt
   ];
 
   # Disable NetworkManager's internal DNS resolution
