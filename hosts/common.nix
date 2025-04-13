@@ -124,6 +124,7 @@
     zoxide
     fastfetch
     nautilus
+    libnotify
   ];
 
   fonts.packages = with pkgs; [
