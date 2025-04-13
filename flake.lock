@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1744145203,
+        "narHash": "sha256-I2oILRiJ6G+BOSjY+0dGrTPe080L3pbKpc+gCV3Nmyk=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "76c0a6dba345490508f36c1aa3c7ba5b6b460989",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1743964447,
@@ -18,7 +38,29 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "disko": "disko",
+        "nixpkgs": "nixpkgs",
+        "themecord": "themecord"
+      }
+    },
+    "themecord": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1743970059,
+        "narHash": "sha256-vwrIULP9VmYqhNtHcNaPat6OjKqbDgwf3qSypOusG9c=",
+        "owner": "danihek",
+        "repo": "themecord",
+        "rev": "2117717f830c4847eafc450319de26ae09ac9277",
+        "type": "github"
+      },
+      "original": {
+        "owner": "danihek",
+        "repo": "themecord",
+        "type": "github"
       }
     }
   },

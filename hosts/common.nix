@@ -1,5 +1,9 @@
-{ config, inputs, pkgs, ... }:
 {
+  config,
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ../modules/nixos/xdg-portal.nix
     ../modules/nixos/social.nix
@@ -12,7 +16,7 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     gc = {
@@ -22,7 +26,6 @@
       options = "--delete-older-than 7d";
     };
   };
-
 
   ### Bootloader
   boot.loader = {
@@ -60,9 +63,7 @@
     user = "nick";
   };
 
-  #systemd.services."getty@tty1".enable = false;
-  #systemd.services."autovt@tty1".enable = false;
-
+  services.displayManager.sddm.wayland.enable = true;
 
   ### Audio
   services.pulseaudio.enable = false;
@@ -117,6 +118,22 @@
     btop
     stow
     pavucontrol
+    wofi
+    brave
+    starship
+    zoxide
+    fastfetch
+    nautilus
+  ];
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    jetbrains-mono
   ];
 
   ### Enable programs
@@ -129,11 +146,11 @@
     };
   };
 
+  networking.firewall.extraCommands = ''iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns'';
+
   ### Keyring
   services.gnome.gnome-keyring.enable = true;
 
-
   ### SSH
   services.openssh.enable = true;
-
 }
