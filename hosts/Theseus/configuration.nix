@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  agenix,
   ...
 }: {
   imports = [
@@ -32,5 +33,6 @@
 
   environment.systemPackages = with pkgs; [
     vscodium
+    cifs-utils
   ];
 }

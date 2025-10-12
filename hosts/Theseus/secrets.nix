@@ -1,16 +1,12 @@
 {
   age = {
     secrets = {
-      secret1 = {
-        file = ../../secrets/secret1.age;
-        owner = "nick";
-        group = "nick";
-      };
-      smb-credentials = {
-        file = ../../secrets/smb-credentials.age;
-        owner = "nick";
+      smb = {
+        file = ../../secrets/smb.age;
         path = "/etc/credentials.txt";
+        owner = "nick";
       };
     };
+    identityPaths = ["/home/nick/.ssh/id_ed25519"];
   };
 }

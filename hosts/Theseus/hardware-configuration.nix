@@ -47,6 +47,15 @@
     options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
   };
 
+  fileSystems."/mnt/share" = {
+    device = "//192.168.178.201/share";
+    fsType = "cifs";
+    options = let
+      # this line prevents hanging on network split
+      automount_opts = "x-systemd.automount,nofail,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+    in ["${automount_opts},credentials=/etc/credentials.txt,uid=1000,gid=1000"];
+  };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
