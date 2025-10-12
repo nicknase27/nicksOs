@@ -14,8 +14,15 @@
 
   boot.initrd.availableKernelModules = ["ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk"];
   boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
+  boot.kernelModules = ["amdgpu" "kvm-amd"];
   boot.extraModulePackages = [];
+  boot.kernelParams = [
+    "loglevel=3" 
+    "amdgpu.gpu_recovery=1" 
+    "amdgpu.ppfeaturemask=0xfffd3fff"
+    "video=DP-2:2560x1440@144"
+    "video=DP-3:1920x1080@120"
+    ];
 
   #fileSystems."/" =
   #  { device = "/dev/disk/by-uuid/799f064c-8018-486e-b3c8-06216e71c392";
