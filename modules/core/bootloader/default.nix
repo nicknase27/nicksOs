@@ -1,15 +1,13 @@
-{ config, pkgs, lib, ... }:
 {
-    boot.loader = {
-        efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
     };
-    grub = {
-        enable = true;
-        efiSupport = true;
-        device = "nodev";
-        useOSProber = true;
-        };
-    };
+    systemd-boot.enable = true;
+  };
 }

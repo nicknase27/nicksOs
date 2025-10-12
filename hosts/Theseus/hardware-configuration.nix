@@ -1,29 +1,52 @@
-{ config, lib, pkgs, modulePath, ...}:
 {
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
-    fileSystems."/" =
-    { device = "/dev/disk/by-uuid/799f064c-8018-486e-b3c8-06216e71c392";
-        fsType = "ext4";
-    };
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
-    fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/79F3-64ED";
-        fsType = "vfat";
-        options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/0bf56dc0-0612-4b7c-b280-bebce5a9bf8b";
+    fsType = "btrfs";
+    options = ["subvol=@"];
+  };
 
-    fileSystems."/mnt/samsung" = {
-        device = "/dev/disk/by-uuid/A0D2555DD255392C";
-        fsType = "ntfs";
-        options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/EFC5-2923";
+    fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
+  };
 
-    fileSystems."/mnt/windows" = {
-        device = "/dev/disk/by-uuid/E822CF1022CEE324";
-        fsType = "ntfs";
-        options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
-    };
-    
-    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-    
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/3aaad780-66db-454e-84c5-e32ba0541d46";
+    fsType = "btrfs";
+  };
+
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/f474fffa-0bde-4bca-8149-d95d3e091516";}
+  ];
+
+  fileSystems."/mnt/samsung" = {
+    device = "/dev/disk/by-uuid/A0D2555DD255392C";
+    fsType = "ntfs";
+    options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
+  };
+
+  fileSystems."/mnt/windows" = {
+    device = "/dev/disk/by-uuid/E822CF1022CEE324";
+    fsType = "ntfs";
+    options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
+  };
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
