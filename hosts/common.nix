@@ -1,68 +1,72 @@
-{ config, pkgs, lib, inputs, ...}:
 {
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: {
+  imports = [
+    ../modules/core/default.nix
+    ../modules/user/editors/neovim/default.nix
+    ../modules/user/git/default.nix
+    ../modules/user/shells/default.nix
+  ];
 
-    imports = [
-        ../modules/core/default.nix
-        ../modules/user/editors/neovim/default.nix
-        ../modules/user/git/default.nix
-        ../modules/user/shells/default.nix
-    ];
-
-    ### User
-    users.users.nick = {
+  ### User
+  users.users.nick = {
     isNormalUser = true;
     description = "Main user";
     extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [];
     shell = pkgs.zsh;
-    };
-    
-    ### Nix
-    nixpkgs.config.allowUnfree = true;
-    nix = {
-        settings = {
-        auto-optimise-store = true;
-        experimental-features = ["nix-command" "flakes"];
-        };
-        nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-        gc = {
-        automatic = true;
-        persistent = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-        };
-    };
+  };
 
-    ### Packages
-    environment.systemPackages = with pkgs; 
-    [
-        fastfetch
-        neovim
-        feh 
-        vlc 
-        zsh
-        bash
-        kitty
-        btop
-        stow
-        ungoogled-chromium
-        zoxide
-        fzf
-        libnotify
-        alejandra
-        gzip
-        p7zip
-        xc
-        gcc
-        clang
-        python3
-        python3Packages.pip 
-        ripgrep
-        tree
-        imagemagick
-        jetbrains-mono 
-        git
-    ];
+  ### Nix
+  nixpkgs.config.allowUnfree = true;
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
+    };
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    gc = {
+      automatic = true;
+      persistent = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+  };
 
-    system.stateVersion = "25.05";
+  ### Packages
+  environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${system}".default
+    fastfetch
+    neovim
+    feh
+    vlc
+    zsh
+    bash
+    kitty
+    btop
+    stow
+    ungoogled-chromium
+    zoxide
+    fzf
+    libnotify
+    alejandra
+    gzip
+    p7zip
+    xc
+    gcc
+    clang
+    python3
+    python3Packages.pip
+    ripgrep
+    tree
+    imagemagick
+    jetbrains-mono
+    git
+  ];
+
+  system.stateVersion = "25.05";
 }

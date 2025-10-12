@@ -31,6 +31,7 @@ in {
     waybar
     grim
     slurp
+    swww
     wl-clipboard
     mako
     rofi

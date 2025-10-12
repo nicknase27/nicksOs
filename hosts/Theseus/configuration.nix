@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./secrets.nix
     ../common.nix
 
     (import ../../modules/user/wms/wayland {selected = ["hyprland"];})
@@ -14,6 +15,7 @@
 
     ../../modules/user/media/default.nix
     ../../modules/system/default.nix
+    ../../modules/user/gaming/default.nix
   ];
 
   networking = {

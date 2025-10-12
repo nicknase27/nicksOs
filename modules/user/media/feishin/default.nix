@@ -1,10 +1,6 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    vesktop
+    feishin
+    mpv
   ];
 }
