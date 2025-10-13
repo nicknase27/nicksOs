@@ -55,11 +55,4 @@
       };
     };
   };
-
-  networking.interfaces.enp1s0.ipv4.addresses = [
-    {
-      address = "10.25.0.2";
-      prefixLength = 24;
-    }
-  ];
 }

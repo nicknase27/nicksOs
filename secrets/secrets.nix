@@ -5,4 +5,9 @@ in {
   "vaultwarden-token.age".publicKeys = [Theseus];
   "wireguard-key.age".publicKeys = [Theseus];
   "wireguard-address.age".publicKeys = [Theseus];
+  "lastfm-apikey.age".publicKeys = [Theseus];
+  "lastfm-secret.age".publicKeys = [Theseus];
+  "spotify-id.age".publicKeys = [Theseus];
+  "spotify-secret.age".publicKeys = [Theseus];
+  "navidrome-env.age".publicKeys = [Theseus];
 }
