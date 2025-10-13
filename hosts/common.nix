@@ -3,6 +3,7 @@
   pkgs,
   lib,
   inputs,
+  agenix,
   ...
 }: {
   imports = [
@@ -12,7 +13,7 @@
     ../modules/user/shells/default.nix
   ];
 
-  ### User
+  # --- User ---
   users.users.nick = {
     isNormalUser = true;
     description = "Main user";
@@ -21,7 +22,7 @@
     shell = pkgs.zsh;
   };
 
-  ### Nix
+  # --- Updates & Maintenance ---
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {
@@ -37,7 +38,25 @@
     };
   };
 
-  ### Packages
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = false;
+    flake = "/home/nick/nicksOs#Theseus";
+    dates = "weekly";
+  };
+
+  # --- Services ---
+
+  services = {
+    fwupd = {
+      enable = true;
+    };
+    fstrim = {
+      enable = true;
+    };
+  };
+
+  # --- Common Packages ---
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
     fastfetch

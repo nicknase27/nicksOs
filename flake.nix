@@ -20,7 +20,7 @@
       modules = [
         ./hosts/Theseus/configuration.nix
         inputs.stylix.nixosModules.stylix
-        agenix.nixosModules.default
+        inputs.agenix.nixosModules.default
       ];
     };
   };
