@@ -10,6 +10,7 @@
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
+      download-buffer-size = 524288000;
     };
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
     gc = {
@@ -18,12 +19,5 @@
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-  };
-
-  system.autoUpgrade = {
-    enable = true;
-    allowReboot = false;
-    flake = "/home/nick/nicksOs#Theseus";
-    dates = "weekly";
   };
 }

@@ -8,7 +8,6 @@
   imports = [
     ../modules/core.nix
     ../modules/user/apps/dev.nix
-    ../modules/user/apps/web.nix
   ];
 
   # --- Common Packages ---
