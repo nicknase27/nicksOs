@@ -16,5 +16,6 @@
     ./system/maintenance.nix
     ./system/services.nix
     ./system/keymap.nix
+    ./system/displaymanager.nix
   ];
 }

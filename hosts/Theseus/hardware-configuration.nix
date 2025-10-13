@@ -10,17 +10,16 @@
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
+  boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd" "amdgpu"];
   boot.kernelParams = [
     "loglevel=3"
     "amdgpu.gpu_recovery=1"
     "amdgpu.ppfeaturemask=0xfffd3fff"
-    "iommu=pt"
-    "amd_iommu=on"
   ];
   boot.extraModulePackages = [];
 
+  services.xserver.enable = true;
   services.xserver.videoDrivers = ["amdgpu"];
 
   hardware = {
@@ -59,7 +58,7 @@
   };
 
   fileSystems."/mnt/windows" = {
-    device = "/dev/disk/by-uuid/E822CF1022CEE324";
+    device = "/dev/disk/by-uuid/5672AECC72AEAFE3";
     fsType = "ntfs";
     options = ["rw" "nofail" "uid=1000" "gid=1000" "noatime"];
   };

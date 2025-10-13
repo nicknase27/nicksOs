@@ -18,7 +18,7 @@
     ../../modules/user/apps/utils.nix
     ../../modules/user/apps/vpn.nix
 
-    ../../modules/user/apps/misc.nix
+    #../../modules/user/apps/misc.nix
   ];
 
   users.users = {
@@ -30,6 +30,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    vscodium
     via
   ];
 
