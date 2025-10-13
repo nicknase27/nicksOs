@@ -15,6 +15,10 @@
         file = ../../secrets/navidrome-env.age;
         path = "/etc/navidrome.env";
       };
+      wireguard-conf = {
+        file = ../../secrets/wireguard-conf.age;
+        path = "data/.secret/wg.conf";
+      };
     };
     identityPaths = ["/home/nick/.ssh/id_ed25519"];
   };

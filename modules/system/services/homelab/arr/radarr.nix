@@ -2,8 +2,8 @@
   services.radarr = {
     enable = true;
     openFirewall = true;
-    user = "nick";
-    group = "users";
-    dataDir = "/home/nick/radarr/data";
+    user = "sonarr";
+    group = "sonarr";
+    dataDir = "/etc/radarr/data";
   };
 }

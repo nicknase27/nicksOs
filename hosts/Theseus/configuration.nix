@@ -22,6 +22,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    cifs-utils
     vscodium
     via
   ];

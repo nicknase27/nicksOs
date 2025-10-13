@@ -66,20 +66,65 @@
   fileSystems."/mnt/share" = {
     device = "//192.168.178.201/share";
     fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,nofail,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    in ["${automount_opts},credentials=/etc/credentials.txt,uid=1000,gid=1000"];
+    options = [
+      "x-systemd.automount"
+      "nofail"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "credentials=/etc/credentials.txt"
+      "vers=3.0"
+      "iocharset=utf8"
+      "file_mode=0777"
+      "dir_mode=0777"
+    ];
   };
 
   fileSystems."/mnt/music" = {
     device = "//192.168.178.201/share/media/music";
     fsType = "cifs";
-    options = let
-      # this line prevents hanging on network split
-      automount_opts = "x-systemd.automount,nofail,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    in ["${automount_opts},credentials=/etc/credentials.txt,uid=navidrome,gid=navidrome"];
+    options = [
+      "x-systemd.automount"
+      "nofail"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "credentials=/etc/credentials.txt"
+      "vers=3.0"
+      "iocharset=utf8"
+      "file_mode=0777"
+      "dir_mode=0777"
+    ];
   };
+
+  fileSystems."/mnt/nixarr" = {
+    device = "//192.168.178.201/share/nixarr";
+    fsType = "cifs";
+    options = [
+      "x-systemd.automount"
+      "nofail"
+      "noauto"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "x-systemd.mount-timeout=5s"
+      "credentials=/etc/credentials.txt"
+      "vers=3.0"
+      "iocharset=utf8"
+      "file_mode=0777"
+      "dir_mode=0777"
+    ];
+  };
+
+  #fileSystems."/mnt/music" = {
+  #  device = "//192.168.178.201/share/media/music";
+  #  fsType = "cifs";
+  #  options = let
+  #    # this line prevents hanging on network split
+  #    automount_opts = "x-systemd.automount,nofail,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
+  #  in ["${automount_opts},credentials=/etc/credentials.txt,uid=navidrome,gid=navidrome"];
+  #};
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = true;
