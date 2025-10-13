@@ -1,19 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
-  services = {
-    fwupd = {
-      enable = true;
-    };
-    fstrim = {
-      enable = true;
-    };
-    openssh = {
-      enable = true;
-      openFirewall = true;
-    };
-  };
+{...}: {
+  imports = [
+    ./services/fwupd.nix
+    ./services/fstrim.nix
+    ./services/ssh.nix
+  ];
 }

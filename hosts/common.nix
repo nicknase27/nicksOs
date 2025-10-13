@@ -13,6 +13,7 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
     fastfetch
+    starship
     neovim
     feh
     zsh
