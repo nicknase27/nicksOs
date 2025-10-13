@@ -10,11 +10,4 @@
 
     #../../modules/user/apps/misc.nix
   ];
-
-  services.displayManager = {
-    sddm = {
-      enable = lib.mkForce false;
-      wayland.enable = lib.mkForce false;
-    };
-  };
 }
