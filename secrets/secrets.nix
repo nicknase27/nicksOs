@@ -3,8 +3,6 @@ let
 in {
   "smb.age".publicKeys = [Theseus];
   "vaultwarden-token.age".publicKeys = [Theseus];
-  "wireguard-key.age".publicKeys = [Theseus];
-  "wireguard-address.age".publicKeys = [Theseus];
   "navidrome-env.age".publicKeys = [Theseus];
   "wireguard-conf.age".publicKeys = [Theseus];
 }
