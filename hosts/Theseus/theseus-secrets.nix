@@ -12,7 +12,7 @@
       };
       navidrome-env = {
         file = ../../secrets/navidrome-env.age;
-        path = "/etc/navidrome.env";
+        path = "/var/lib/secrets/navidrome.env";
       };
       wireguard-conf = {
         file = ../../secrets/wireguard-conf.age;
