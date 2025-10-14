@@ -1,6 +1,7 @@
 {
   age = {
     secrets = {
+      # Use root ssh keys or move the user one to /etc/ssh, it won't decrypt the credentials and *will* fail without them -> crash all other lab services
       smb = {
         file = ../../secrets/smb.age;
         path = "/etc/credentials.txt";
@@ -18,7 +19,18 @@
         file = ../../secrets/wireguard-conf.age;
         path = "data/.secret/wg.conf";
       };
+      cloudflare = {
+        file = ../../secrets/cloudflare.age;
+      };
+      cloudflare-cert = {
+        file = ../../secrets/cloudflare-cert.age;
+        path = "/var/lib/cloudflared/cert.pem";
+      };
+      cloudflare-creds = {
+        file = ../../secrets/cloudflare-creds.age;
+        path = "/var/lib/cloudflared/911ae7cf-2eaf-400b-a6c2-35f79b7ffea5.json";
+      };
     };
-    identityPaths = ["/home/nick/.ssh/id_ed25519"];
+    identityPaths = ["/etc/ssh/id_ed25519"];
   };
 }

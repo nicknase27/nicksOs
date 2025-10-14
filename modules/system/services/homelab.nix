@@ -1,9 +1,10 @@
 {...}: {
   imports = [
     #./homelab/adguard.nix
-    #./homelab/navidrome.nix
+    ./homelab/navidrome.nix
     #./homelab/caddy.nix
     #./homelab/vaultwarden.nix
+    #./homelab/cloudflared.nix
 
     #./homelab/nixarr.nix
   ];

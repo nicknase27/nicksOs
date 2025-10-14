@@ -6,4 +6,6 @@ in {
   "navidrome-env.age".publicKeys = [Theseus];
   "wireguard-conf.age".publicKeys = [Theseus];
   "cloudflare.age".publicKeys = [Theseus];
+  "cloudflare-cert.age".publicKeys = [Theseus];
+  "cloudflare-creds.age".publicKeys = [Theseus];
 }
