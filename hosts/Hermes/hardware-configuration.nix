@@ -41,57 +41,10 @@
   fileSystems."/mnt/share" = {
     device = "//192.168.178.201/share";
     fsType = "cifs";
-    options = [
-      "x-systemd.automount"
-      "nofail"
-      "noauto"
-      "x-systemd.idle-timeout=60"
-      "x-systemd.device-timeout=5s"
-      "x-systemd.mount-timeout=5s"
-      "credentials=/etc/credentials.txt"
-      "vers=3.0"
-      "iocharset=utf8"
-      "file_mode=0777"
-      "dir_mode=0777"
-    ];
+    options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
   };
 
-  fileSystems."/mnt/music" = {
-    device = "//192.168.178.201/share/media/music";
-    fsType = "cifs";
-    options = [
-      "x-systemd.automount"
-      "nofail"
-      "noauto"
-      "x-systemd.idle-timeout=60"
-      "x-systemd.device-timeout=5s"
-      "x-systemd.mount-timeout=5s"
-      "credentials=/etc/credentials.txt"
-      "vers=3.0"
-      "iocharset=utf8"
-      "file_mode=0777"
-      "dir_mode=0777"
-    ];
-  };
-
-  fileSystems."/mnt/nixarr" = {
-    device = "//192.168.178.201/share/nixarr";
-    fsType = "cifs";
-    options = [
-      "x-systemd.automount"
-      "nofail"
-      "noauto"
-      "x-systemd.idle-timeout=60"
-      "x-systemd.device-timeout=5s"
-      "x-systemd.mount-timeout=5s"
-      "credentials=/etc/credentials.txt"
-      "vers=3.0"
-      "iocharset=utf8"
-      "file_mode=0777"
-      "dir_mode=0777"
-    ];
-  };
-
+  systemd.network.wait-online.enable = true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = true;
 }

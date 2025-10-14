@@ -14,7 +14,7 @@
     settings = {
       Address = "0.0.0.0";
       Port = 4533;
-      MusicFolder = "/mnt/music";
+      MusicFolder = "/mnt/share/media/music";
       AlbumPlayCountMode = "normalized";
       AutoImportPlaylists = false;
       DefaultTheme = "Spotify-ish";
@@ -32,4 +32,11 @@
   environment.etc."navidrome.env".mode = "0640";
   environment.etc."navidrome.env".user = "root";
   environment.etc."navidrome.env".group = "navidrome";
+
+  systemd.services = {
+    navidrome = {
+      after = ["mnt-share.mount"];
+      requires = ["mnt-share.mount"];
+    };
+  };
 }

@@ -5,4 +5,5 @@ in {
   "vaultwarden-token.age".publicKeys = [Theseus];
   "navidrome-env.age".publicKeys = [Theseus];
   "wireguard-conf.age".publicKeys = [Theseus];
+  "cloudflare.age".publicKeys = [Theseus];
 }

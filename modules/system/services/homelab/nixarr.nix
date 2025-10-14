@@ -7,7 +7,7 @@
   nixarr = {
     enable = true;
 
-    mediaDir = "/mnt/nixarr";
+    mediaDir = "/mnt/share/media/nixarr";
     stateDir = "/data/media/.state/nixarr";
 
     vpn = {
@@ -26,7 +26,6 @@
     transmission = {
       enable = true;
       vpn.enable = true;
-      peerPort = 50000;
       flood.enable = true;
       extraSettings = {
         # Bind to the VPN interface's local IP
@@ -40,31 +39,14 @@
       };
     };
 
-    radarr = {
-      enable = true;
-    };
-
-    sonarr = {
-      enable = true;
-    };
-
-    prowlarr = {
-      enable = true;
-    };
-
-    jellyseerr = {
-      enable = true;
-    };
-
     # It is possible for this module to run the *Arrs through a VPN, but it
     # is generally not recommended, as it can cause rate-limiting issues.
+    radarr.enable = true;
+    sonarr.enable = true;
+    prowlarr.enable = true;
+    jellyseerr.enable = true;
     bazarr.enable = false;
     lidarr.enable = false;
     readarr.enable = false;
-  };
-
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "nicknase@nicknase27.com";
   };
 }
