@@ -10,6 +10,6 @@
     #../../modules/user/apps/virt.nix
     #../../modules/user/apps/misc.nix
 
-    ../../modules/system/services/homelab.nix
+    ../../modules/homelab.nix
   ];
 }
