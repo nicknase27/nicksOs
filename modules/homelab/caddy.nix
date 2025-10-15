@@ -34,5 +34,12 @@ in {
           protocols tls1.3
       }
     '';
+    virtualHosts."radar.nicknase27.com".extraConfig = ''
+      reverse_proxy localhost:7878 {
+        header_up X-Real-IP {remote_host}
+        header_up Upgrade {>Upgrade}
+        header_up Connection {>Connection}
+        }
+    '';
   };
 }

@@ -5,7 +5,8 @@
     #./homelab/caddy.nix
     #./homelab/vaultwarden.nix
     #./homelab/cloudflared.nix
+    #./homelab/homepage.nix
 
-    #./homelab/nixarr.nix
+    ./homelab/nixarr.nix
   ];
 }
