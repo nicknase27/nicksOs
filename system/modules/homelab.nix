@@ -7,6 +7,6 @@
     #./homelab/cloudflared.nix
     #./homelab/homepage.nix
 
-    ./homelab/nixarr.nix
+    #./homelab/nixarr.nix
   ];
 }
