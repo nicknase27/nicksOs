@@ -5,10 +5,13 @@
 }: {
   imports = [
     ../../modules/apps/vesktop.nix
+    ../../modules/apps/kitty.nix
   ];
 
   home.packages = with pkgs; [
+    feishin
     ungoogled-chromium
+    qutebrowser
   ];
 
   programs.fish = {
