@@ -4,6 +4,10 @@
   ...
 }: {
   imports = [
+    ../modules/apps/shell.nix
+    ../modules/apps/git.nix
+
+    ../modules/system/fonts.nix
   ];
 
   home.packages = [

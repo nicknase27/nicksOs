@@ -21,6 +21,27 @@ in {
     '';
   };
 
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    settings = {
+      username = {
+        show_always = true;
+      };
+      hostname = {
+        ssh_only = false;
+      };
+      custom = {
+        description = "Combined username and hostname";
+        command = "echo \"$(whoami)@$(hostname)\"";
+        when = true; # Always run
+        format = "[$output]($style) ";
+      };
+      add_newline = true; # Matches preset
+      format = "$custom$directory$git_branch$git_status$character";
+    };
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -28,12 +49,6 @@ in {
     '';
     shellAliases = myAliases;
     functions = {
-      rebuild = {
-        body = "sudo nixos-rebuild switch --flake ~/nicksOs/system/#Theseus";
-      };
-      swap = {
-        body = "home-manager switch --flake ~/nicksOs/home/#nick";
-      };
       nixcf = {
         body = ''nvim (find -L "$HOME/nicksOs" -type f -not -path "*/.git/*" -o -path "$HOME/nicksOs/.git/config" | sed "s|$HOME/nicksOs/||" | fzf | xargs -I{} echo "$HOME/nicksOs/{}")        '';
       };

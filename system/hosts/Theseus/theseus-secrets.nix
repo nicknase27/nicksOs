@@ -7,10 +7,10 @@
         path = "/etc/credentials.txt";
         mode = "777";
       };
-      vaultwarden-token = {
-        file = ../../secrets/vaultwarden-token.age;
-        path = "/var/lib/vaultwarden/vaultwarden.env";
-      };
+      #vaultwarden-token = {
+      #  file = ../../secrets/vaultwarden-token.age;
+      #  path = "/var/lib/vaultwarden/vaultwarden.env";
+      #};
       navidrome-env = {
         file = ../../secrets/navidrome-env.age;
         path = "/var/lib/secrets/navidrome.env";

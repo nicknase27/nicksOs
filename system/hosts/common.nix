@@ -17,12 +17,10 @@
     starship
     neovim
     feh
-    zsh
     bash
     kitty
     btop
     stow
-    ungoogled-chromium
     zoxide
     fzf
     libnotify
@@ -39,6 +37,7 @@
     imagemagick
     jetbrains-mono
     git
+    mpv
   ];
 
   system.stateVersion = "25.05";
