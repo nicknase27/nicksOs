@@ -8,7 +8,6 @@
   imports = [
     ./hardware-configuration.nix
     ./hermes-secrets.nix
-    ../common.nix
 
     ./profile.nix
   ];

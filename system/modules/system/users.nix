@@ -9,6 +9,6 @@
     description = "Main user";
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 }

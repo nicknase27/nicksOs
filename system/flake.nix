@@ -20,6 +20,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/Theseus/configuration.nix
+          ./hosts/common.nix
           inputs.agenix.nixosModules.default
           inputs.nixarr.nixosModules.default
         ];
@@ -29,6 +30,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/Hermes/configuration.nix
+          ./hosts/common.nix
           inputs.agenix.nixosModules.default
           inputs.nixarr.nixosModules.default
         ];
