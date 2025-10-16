@@ -9,6 +9,7 @@
     ../../modules/apps/mako.nix
     ../../modules/apps/waybar.nix
     ../../modules/apps/rofi.nix
+    ../../modules/apps/hyprland.nix
   ];
 
   home.packages = with pkgs; [
