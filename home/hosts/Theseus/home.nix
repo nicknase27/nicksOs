@@ -7,6 +7,8 @@
     ../../modules/apps/vesktop.nix
     ../../modules/apps/kitty.nix
     ../../modules/apps/mako.nix
+    ../../modules/apps/waybar.nix
+    ../../modules/apps/rofi.nix
   ];
 
   home.packages = with pkgs; [
