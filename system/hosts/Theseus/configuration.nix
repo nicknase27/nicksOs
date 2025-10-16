@@ -21,6 +21,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    compose2nix
     cifs-utils
     vscodium
     via

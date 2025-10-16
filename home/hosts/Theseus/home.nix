@@ -9,6 +9,7 @@
   ];
 
   home.packages = with pkgs; [
+    playerctl
     feishin
     ungoogled-chromium
     qutebrowser

@@ -49,6 +49,11 @@
       jellyseerr-api = {
         file = ../../secrets/jellyseerr-api.age;
       };
+      pihole-token = {
+        file = ../../secrets/pihole-token.age;
+        path = "/var/lib/secrets/pihole-token.env";
+        mode = "777";
+      };
     };
     identityPaths = ["/etc/ssh/id_ed25519"];
   };

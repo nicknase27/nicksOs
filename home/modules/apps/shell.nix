@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   myAliases = {
     ls = "ls --color";
     ".." = "cd ..";
@@ -16,6 +20,11 @@ in {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting
+      '';
+      shellInit = ''
+          if test "$TERM" = "xterm-kitty"
+            alias ssh="kitty +kitten ssh"
+        end
       '';
       shellAliases = myAliases;
       functions = {
@@ -38,6 +47,7 @@ in {
     starship = {
       enable = true;
       enableFishIntegration = true;
+      enableBashIntegration = false;
       settings = {
         username = {
           show_always = true;
@@ -68,4 +78,5 @@ in {
       '';
     };
   };
+  xdg.enable = true;
 }

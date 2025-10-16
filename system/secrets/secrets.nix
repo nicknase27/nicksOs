@@ -14,4 +14,5 @@ in {
   "sonarr-api.age".publicKeys = [Theseus];
   "prowlarr-api.age".publicKeys = [Theseus];
   "jellyseerr-api.age".publicKeys = [Theseus];
+  "pihole-token.age".publicKeys = [Theseus];
 }

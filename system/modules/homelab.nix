@@ -6,6 +6,10 @@
     #./homelab/vaultwarden.nix
     #./homelab/cloudflared.nix
     #./homelab/homepage.nix
+    #./homelab/audiobookshelf.nix
+    ./homelab/docker.nix
+    #./homelab/pihole.nix
+    #./homelab/nginxpm.nix
 
     #./homelab/nixarr.nix
   ];

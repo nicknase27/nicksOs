@@ -25,6 +25,7 @@
           FakeNitro.enabled = true;
           NoBlockedMessages.enabled = true;
           WebScreenShareFixes.enabled = true;
+          NotificationVolume.enabled = true;
         };
       };
     };
