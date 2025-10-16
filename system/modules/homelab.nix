@@ -6,7 +6,6 @@
     #./homelab/native/cloudflared.nix
     #./homelab/native/audiobookshelf.nix
     #./homelab/native/nixarr.nix
-    ./homelab/native/vscode.nix
 
     # --- Docker --- #
     #./homelab/docker/docker.nix

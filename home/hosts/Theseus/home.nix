@@ -6,6 +6,7 @@
   imports = [
     ../../modules/apps/vesktop.nix
     ../../modules/apps/kitty.nix
+    ../../modules/apps/mako.nix
   ];
 
   home.packages = with pkgs; [

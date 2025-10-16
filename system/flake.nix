@@ -5,6 +5,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
     nixarr.url = "github:rasmus-kirk/nixarr";
+
+    compose2nix = {
+      url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -12,6 +17,7 @@
     nixpkgs,
     agenix,
     nixarr,
+    compose2nix,
     ...
   } @ inputs: {
     nixosConfigurations = {

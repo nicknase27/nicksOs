@@ -13,6 +13,7 @@
   # --- Common Packages ---
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
+    inputs.compose2nix.packages."${system}".default
     fastfetch
     starship
     neovim
