@@ -30,6 +30,35 @@
         file = ../../secrets/cloudflare-creds.age;
         path = "/var/lib/cloudflared/911ae7cf-2eaf-400b-a6c2-35f79b7ffea5.json";
       };
+      jellyfin-api = {
+        file = ../../secrets/jellyfin-api.age;
+      };
+      navidrome-api = {
+        file = ../../secrets/navidrome-api.age;
+      };
+      radarr-api = {
+        file = ../../secrets/radarr-api.age;
+        path = "/var/lib/secrets/radarr-api.txt";
+      };
+      sonarr-api = {
+        file = ../../secrets/sonarr-api.age;
+      };
+      prowlarr-api = {
+        file = ../../secrets/prowlarr-api.age;
+      };
+      jellyseerr-api = {
+        file = ../../secrets/jellyseerr-api.age;
+      };
+      pihole-token = {
+        file = ../../secrets/pihole-token.age;
+        path = "/var/lib/secrets/pihole-token.env";
+        mode = "777";
+      };
+      homarr-token = {
+        file = ../../secrets/homarr-token.age;
+        path = "/var/lib/secrets/homarr-token.env";
+        mode = "777";
+      };
     };
     identityPaths = ["/etc/ssh/id_ed25519"];
   };

@@ -15,4 +15,5 @@ in {
   "prowlarr-api.age".publicKeys = [Theseus];
   "jellyseerr-api.age".publicKeys = [Theseus];
   "pihole-token.age".publicKeys = [Theseus];
+  "homarr-token.age".publicKeys = [Theseus];
 }

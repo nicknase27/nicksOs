@@ -54,6 +54,11 @@
         path = "/var/lib/secrets/pihole-token.env";
         mode = "777";
       };
+      homarr-token = {
+        file = ../../secrets/homarr-token.age;
+        path = "/var/lib/secrets/homarr-token.env";
+        mode = "777";
+      };
     };
     identityPaths = ["/etc/ssh/id_ed25519"];
   };
