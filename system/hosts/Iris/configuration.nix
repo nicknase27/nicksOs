@@ -47,6 +47,12 @@
     };
   };
 
+  services = {
+    openssh = {
+      PermitRootLogin = "no";
+    };
+  };
+
   hardware.bluetooth = {
     enable = lib.mkForce false;
     powerOnBoot = lib.mkForce false;
