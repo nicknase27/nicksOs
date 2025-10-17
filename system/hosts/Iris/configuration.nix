@@ -41,7 +41,6 @@
 
   users.users.root = {
     openssh = {
-      PermitRootLogin = "yes";
       authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwouafzGDRGeMJQbm9ME/1CSkXicdL7TthJjWkhyLYd nick@Theseus"
       ];
