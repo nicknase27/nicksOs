@@ -43,7 +43,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    flake = "/home/nick/nicksOs#Theseus";
+    flake = "/home/nick/nicksOs/system#Theseus";
     dates = "weekly";
   };
 }

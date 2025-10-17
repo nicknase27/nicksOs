@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  # User-specific configurations for Hermes, my homelab.
+  # Host-specific configurations for Hermes, my homelab.
   imports = [
     ../../modules/homelab.nix
     ../../modules/user/apps/utils.nix

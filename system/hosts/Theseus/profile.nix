@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  # User-specific configurations for Theseus, including apps and window manager
+  # Host-specific configurations for Theseus, my PC
   imports = [
     ../../modules/user/wm/hyprland.nix
 

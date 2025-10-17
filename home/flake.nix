@@ -41,6 +41,14 @@
         ];
         extraSpecialArgs = {hostname = "Hermes";};
       };
+      "nick@Iris" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./hosts/Iris/home.nix
+          ./hosts/common.nix
+        ];
+        extraSpecialArgs = {hostname = "Iris";};
+      };
     };
   };
 }

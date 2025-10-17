@@ -5,9 +5,13 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
     nixarr.url = "github:rasmus-kirk/nixarr";
-
     compose2nix = {
       url = "github:aksiksi/compose2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -18,6 +22,7 @@
     agenix,
     nixarr,
     compose2nix,
+    disko,
     ...
   } @ inputs: {
     nixosConfigurations = {
@@ -39,6 +44,17 @@
           ./hosts/common.nix
           inputs.agenix.nixosModules.default
           inputs.nixarr.nixosModules.default
+        ];
+      };
+      Iris = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/Iris/configuration.nix
+          ./hosts/Iris/hardware-configuration.nix
+          ./hosts/common.nix
+          disko.nixosModules.disko
+          inputs.agenix.nixosModules.default
         ];
       };
     };
