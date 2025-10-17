@@ -49,7 +49,9 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "no"; # OR "no" for strict denial
+    settings = {
+      permitRootLogin = "no"; # OR "no" for strict denial
+    };
   };
 
   hardware.bluetooth = {

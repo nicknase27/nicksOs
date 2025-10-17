@@ -13,6 +13,7 @@
   ];
 
   home.packages = [
+    tmux
   ];
 
   home.file = {
