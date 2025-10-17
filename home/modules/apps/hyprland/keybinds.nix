@@ -7,6 +7,7 @@
           "$terminal" = "kitty";
           "$fileManager" = "dolphin";
           "$menu" = "rofi -show drun";
+          "$pmenu" = "rofi-rbw";
           "$browser" = "chromium";
           "$mainMod" = "SUPER";
 
@@ -18,6 +19,7 @@
             "$mainMod SHIFT, SPACE, togglefloating,"
             "$mainMod, F, fullscreen"
             "$mainMod, D, exec, $menu"
+            "$mainMod SHIFT, D, exec, $pmenu"
             "$mainMod, P, pseudo,"
             "$mainMod, J, togglesplit,"
             "$mainMod, W, exec, $browser"

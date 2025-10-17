@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   services = {
     mako = {
       enable = true;
@@ -17,7 +17,7 @@
 
         default-timeout = 5000;
         ignore-timeout = false;
-        font = "JetBrainsMono Nerd Font 12";
+        font = lib.mkForce "JetBrainsMono Nerd Font 12";
 
         # Misc
         sort = "-time";

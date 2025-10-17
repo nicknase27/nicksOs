@@ -8,11 +8,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    stylix,
     ...
   }: let
     system = "x86_64-linux";
@@ -24,6 +29,7 @@
         modules = [
           ./hosts/Theseus/home.nix
           ./hosts/common.nix
+          stylix.homeModules.stylix
         ];
         extraSpecialArgs = {hostname = "Theseus";};
       };

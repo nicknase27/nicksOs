@@ -10,9 +10,17 @@
     ../../modules/apps/waybar.nix
     ../../modules/apps/rofi.nix
     ../../modules/apps/hyprland.nix
+    ../../modules/apps/qutebrowser.nix
+    ../../modules/system/theme.nix
   ];
 
   home.packages = with pkgs; [
+    yazi
+    keepassxc
+    rbw
+    xdotool
+    wtype
+    rofi-rbw
     playerctl
     feishin
     ungoogled-chromium

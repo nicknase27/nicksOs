@@ -75,7 +75,7 @@
 in {
   programs.rofi = {
     enable = true;
-    font = "JetBrainsMono Nerd Font Medium 13";
+    font = lib.mkForce "JetBrainsMono Nerd Font Medium 13";
     terminal = "${pkgs.kitty}/bin/kitty";
 
     # Apply theme correctly

@@ -1,10 +1,10 @@
-{...}: {
+{lib, ...}: {
   programs = {
     kitty = {
       enable = true;
       settings = {
         # Font
-        font_family = "JetBrainsMono Nerd Font";
+        font_family = lib.mkForce "JetBrainsMono Nerd Font";
         bold_font = "auto";
         italic_font = "auto";
         bold_italic_font = "auto";
@@ -12,7 +12,7 @@
         adjust_line_height = 0;
         adjust_line_width = 0;
         # Window opacity
-        background_opacity = "0.9";
+        background_opacity = lib.mkForce "0.9";
         # Disable close confirmation
         confirm_os_window_close = 0;
         # Cursor
