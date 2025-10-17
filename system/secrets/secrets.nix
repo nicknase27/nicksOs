@@ -1,5 +1,6 @@
 let
   Theseus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwouafzGDRGeMJQbm9ME/1CSkXicdL7TthJjWkhyLYd nick@Theseus";
+  Iris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPWmvZWyYxj3QTHYfNaLXHYjAU8HlwjAL/zH09FCTw8g nick@Iris";
 in {
   "smb.age".publicKeys = [Theseus];
   "vaultwarden-token.age".publicKeys = [Theseus];
