@@ -47,10 +47,10 @@
     };
   };
 
-  services = {
-    openssh = {
-      PermitRootLogin = "no";
-    };
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false; # optional, disables password login
+    permitRootLogin = "no"; # OR "no" for strict denial
   };
 
   hardware.bluetooth = {
