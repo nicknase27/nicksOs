@@ -9,7 +9,7 @@
     ../modules/apps/fastfetch.nix
     ../modules/apps/btop.nix
 
-    ../modules/system/fonts.nix
+    #../modules/system/fonts.nix
   ];
 
   home.packages = [
