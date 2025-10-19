@@ -40,18 +40,4 @@
       wayland.enable = lib.mkForce false;
     };
   };
-
-  hardware.bluetooth = {
-    enable = lib.mkForce true;
-    powerOnBoot = lib.mkForce true;
-    settings = {
-      General = {
-        Experimental = lib.mkForce true;
-        FastConnectable = lib.mkForce true;
-      };
-      Policy = {
-        AutoEnable = lib.mkForce true;
-      };
-    };
-  };
 }

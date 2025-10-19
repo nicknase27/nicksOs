@@ -7,7 +7,6 @@
 }: {
   imports = [
     ../modules/core.nix
-    ../modules/user/apps/dev.nix
   ];
 
   # --- Common Packages ---
@@ -19,6 +18,7 @@
     neovim
     feh
     bash
+    fish
     kitty
     btop
     stow
@@ -39,6 +39,8 @@
     jetbrains-mono
     git
     mpv
+    baobab
+    bind
   ];
 
   system.stateVersion = "25.05";

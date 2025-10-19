@@ -4,12 +4,7 @@
   ...
 }: {
   imports = [
-    ../modules/apps/shell.nix
-    ../modules/apps/git.nix
-    ../modules/apps/fastfetch.nix
-    ../modules/apps/btop.nix
-
-    #../modules/system/fonts.nix
+    ../modules/cli
   ];
 
   home.packages = with pkgs; [

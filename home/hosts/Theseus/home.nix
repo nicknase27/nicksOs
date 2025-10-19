@@ -4,14 +4,7 @@
   ...
 }: {
   imports = [
-    ../../modules/apps/vesktop.nix
-    ../../modules/apps/kitty.nix
-    ../../modules/apps/mako.nix
-    ../../modules/apps/waybar.nix
-    ../../modules/apps/rofi.nix
-    ../../modules/apps/hyprland.nix
-    ../../modules/apps/qutebrowser.nix
-    ../../modules/system/theme.nix
+    ../../modules/desktop/default.nix
   ];
 
   home.packages = with pkgs; [

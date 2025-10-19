@@ -23,8 +23,8 @@
   '';
 in {
   imports = [
-    ./waybar/settings.nix
-    ./waybar/style.nix
+    ./settings.nix
+    ./style.nix
   ];
 
   programs.waybar = {

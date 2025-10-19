@@ -53,18 +53,4 @@
       PermitRootLogin = "no"; # OR "no" for strict denial
     };
   };
-
-  hardware.bluetooth = {
-    enable = lib.mkForce false;
-    powerOnBoot = lib.mkForce false;
-    settings = {
-      General = {
-        Experimental = lib.mkForce false;
-        FastConnectable = lib.mkForce false;
-      };
-      Policy = {
-        AutoEnable = lib.mkForce false;
-      };
-    };
-  };
 }

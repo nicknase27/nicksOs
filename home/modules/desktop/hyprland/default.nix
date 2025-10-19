@@ -1,10 +1,10 @@
 {...}: {
   imports = [
-    ./hyprland/env.nix
-    ./hyprland/keybinds.nix
-    ./hyprland/monitors.nix
-    ./hyprland/autostart.nix
-    ./hyprland/input.nix
+    ./env.nix
+    ./keybinds.nix
+    ./monitors.nix
+    ./autostart.nix
+    ./input.nix
   ];
 
   wayland = {
