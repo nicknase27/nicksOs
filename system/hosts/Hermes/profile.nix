@@ -14,7 +14,7 @@
   services = {
     sddm = {
       displayManager = {
-        enable = mkForce false;
+        enable = lib.mkForce false;
       };
     };
   };
