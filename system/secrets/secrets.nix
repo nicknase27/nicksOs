@@ -9,12 +9,6 @@ in {
   "cloudflare.age".publicKeys = [Theseus];
   "cloudflare-cert.age".publicKeys = [Theseus];
   "cloudflare-creds.age".publicKeys = [Theseus];
-  "jellyfin-api.age".publicKeys = [Theseus];
-  "navidrome-api.age".publicKeys = [Theseus];
-  "radarr-api.age".publicKeys = [Theseus];
-  "sonarr-api.age".publicKeys = [Theseus];
-  "prowlarr-api.age".publicKeys = [Theseus];
-  "jellyseerr-api.age".publicKeys = [Theseus];
   "pihole-token.age".publicKeys = [Theseus];
   "homarr-token.age".publicKeys = [Theseus];
 }
