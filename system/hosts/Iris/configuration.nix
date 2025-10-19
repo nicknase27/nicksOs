@@ -50,7 +50,7 @@
   services.openssh = {
     enable = true;
     settings = {
-      permitRootLogin = "no"; # OR "no" for strict denial
+      PermitRootLogin = "no"; # OR "no" for strict denial
     };
   };
 
