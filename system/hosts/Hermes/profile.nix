@@ -12,9 +12,11 @@
   ];
 
   services = {
-    sddm = {
-      displayManager = {
-        enable = lib.mkForce false;
+    displayManager = {
+      sddm = {
+        displayManager = {
+          enable = lib.mkForce false;
+        };
       };
     };
   };
