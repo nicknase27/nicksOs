@@ -4,7 +4,8 @@
   ...
 }: let
   myAliases = {
-    ls = "ls --color";
+    ls = "eza";
+    tree = "eza -T";
     ".." = "cd ..";
     ff = "fastfetch";
     off = "poweroff";
@@ -14,6 +15,8 @@
     pull = "git pull";
     commit = "git commit -m";
     unstow = "stow -D";
+    vim = "nvim";
+    cat = "bat";
   };
 in {
   programs = {
@@ -28,19 +31,25 @@ in {
         end
       '';
       shellAliases = myAliases;
+      shellAbbrs = {
+        "-h" = {
+          position = "anywhere";
+          expansion = "-h | bat -plhelp";
+        };
+        "--help" = {
+          position = "anywhere";
+          expansion = "--help | bat -plhelp";
+        };
+      };
       functions = {
         nixcf = {
-          body = ''nvim (find -L "$HOME/nicksOs" -type f -not -path "*/.git/*" -o -path "$HOME/nicksOs/.git/config" | sed "s|$HOME/nicksOs/||" | fzf | xargs -I{} echo "$HOME/nicksOs/{}")        '';
+          body = ''nvim (find -L "$HOME/nicksOs" -type f -not -path "*/.git/*" -o -path "$HOME/nicksOs/.git/config" | sed "s|$HOME/nicksOs/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/nicksOs/{}" | xargs -I{} echo "$HOME/nicksOs/{}")'';
         };
         hyprcf = {
-          body = ''
-            nvim (find -L "$HOME/.config/hypr" -type f | sed "s|$HOME/.config/hypr/||" | fzf | xargs -I{} echo "$HOME/.config/hypr/{}")
-          '';
+          body = ''nvim (find -L "$HOME/.config/hypr" -type f | sed "s|$HOME/.config/hypr/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/hypr/{}" | xargs -I{} echo "$HOME/.config/hypr/{}")'';
         };
         barcf = {
-          body = ''
-            nvim (find -L "$HOME/.config/waybar" -type f | sed "s|$HOME/.config/waybar/||" | fzf | xargs -I{} echo "$HOME/.config/waybar/{}")
-          '';
+          body = ''nvim (find -L "$HOME/.config/waybar" -type f | sed "s|$HOME/.config/waybar/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/waybar/{}" | xargs -I{} echo "$HOME/.config/waybar/{}")'';
         };
       };
     };

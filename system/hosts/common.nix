@@ -23,6 +23,9 @@
     btop
     stow
     zoxide
+    bat
+    bat-extras.core
+    eza
     fzf
     libnotify
     alejandra
@@ -34,7 +37,6 @@
     python3
     python3Packages.pip
     ripgrep
-    tree
     imagemagick
     jetbrains-mono
     git

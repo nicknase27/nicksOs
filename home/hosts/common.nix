@@ -15,6 +15,7 @@
   };
 
   home.sessionVariables = {
+    FZF_DEFAULT_OPS = "--layout reverse --height 60% --preview 'bat -p --color always {}'";
   };
 
   home.username = "nick";
