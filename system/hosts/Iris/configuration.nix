@@ -51,6 +51,8 @@
     enable = true;
     settings = {
       PermitRootLogin = "no"; # OR "no" for strict denial
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
   };
 }
