@@ -9,5 +9,9 @@
       enable = true;
       wayland.enable = true;
     };
+    autoLogin = {
+      enable = true;
+      user = "nick";
+    };
   };
 }

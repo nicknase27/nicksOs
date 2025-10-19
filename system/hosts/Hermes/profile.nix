@@ -10,4 +10,12 @@
 
     #../../modules/user/apps/misc.nix
   ];
+
+  services = {
+    sddm = {
+      displayManager = {
+        enable = mkForce false;
+      };
+    };
+  };
 }

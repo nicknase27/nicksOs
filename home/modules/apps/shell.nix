@@ -11,6 +11,7 @@
     add = "git add .";
     stat = "git status";
     push = "git push";
+    pull = "git pull";
     commit = "git commit -m";
     unstow = "stow -D";
   };
@@ -78,5 +79,4 @@ in {
       '';
     };
   };
-  xdg.enable = true;
 }

@@ -8,4 +8,12 @@
     #../../modules/homelab.nix
     ../../modules/user/apps/utils.nix
   ];
+
+  services = {
+    sddm = {
+      displayManager = {
+        enable = mkForce false;
+      };
+    };
+  };
 }

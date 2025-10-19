@@ -12,7 +12,7 @@
     #../modules/system/fonts.nix
   ];
 
-  home.packages = [
+  home.packages = with pkgs; [
     tmux
   ];
 
