@@ -9,8 +9,8 @@
 
     # --- Docker --- #
     #./homelab/docker/docker.nix
-    #./homelab/dockerpihole.nix
-    #./homelab/dockernginxpm.nix
-    #./homelab/dockerhomarr.nix
+    #./homelab/docker/pihole.nix
+    #./homelab/docker/nginxpm.nix
+    #./homelab/docker/homarr.nix
   ];
 }

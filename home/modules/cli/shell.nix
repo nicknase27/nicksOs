@@ -51,6 +51,9 @@ in {
         barcf = {
           body = ''nvim (find -L "$HOME/.config/waybar" -type f | sed "s|$HOME/.config/waybar/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/waybar/{}" | xargs -I{} echo "$HOME/.config/waybar/{}")'';
         };
+        vimcf = {
+          body = ''nvim (find -L "$HOME/.config/nvim" -type f | sed "s|$HOME/.config/nvim/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/nvim/{}" | xargs -I{} echo "$HOME/.config/nvim/{}")'';
+        };
       };
     };
 
