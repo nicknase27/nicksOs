@@ -43,6 +43,7 @@
     mpv
     baobab
     bind
+    wireguard-tools
   ];
 
   system.stateVersion = "25.05";
