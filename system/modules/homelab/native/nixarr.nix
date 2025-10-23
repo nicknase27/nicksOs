@@ -49,4 +49,5 @@
     lidarr.enable = false;
     readarr.enable = false;
   };
+  networking.firewall.allowedTCPPorts = [7878 8989 9696 5055 9091];
 }
