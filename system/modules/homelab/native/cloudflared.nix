@@ -10,13 +10,13 @@
       certificateFile = "/var/lib/cloudflared/cert.pem";
       default = "http_status:404";
       ingress = {
-        "nvv.nicknase27.com" = {
+        "nv.nicknase27.com" = {
           service = "http://localhost:4533";
         };
-        "jff.nicknase27.com" = {
+        "jf.nicknase27.com" = {
           service = "http://localhost:8096";
         };
-        "vw.nicknse27.com" = {
+        "vt.nicknse27.com" = {
           service = "http://localhost:8222";
         };
       };

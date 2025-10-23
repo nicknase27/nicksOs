@@ -34,10 +34,12 @@
   networking = {
     hostName = "Theseus";
     useDHCP = lib.mkForce false;
-    nameservers = [
-      "192.168.178.202"
-      "fe80::be24:11ff:fe84:ac69"
-    ];
+    #nameservers = [
+    # "192.168.178.210"
+    # "192.168.178.202"
+    # "fda0:be70:c013:0:83a7:1091:7764:69bd"
+    # "fda0:be70:c013:0:be24:11ff:fe84:ac69"
+    #];
   };
 
   networking.firewall.allowedUDPPorts = [51820];
