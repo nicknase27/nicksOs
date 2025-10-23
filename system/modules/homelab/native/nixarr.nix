@@ -1,6 +1,7 @@
 {
   nixarr,
   pkgs,
+  config,
   lib,
   ...
 }: {
@@ -13,6 +14,9 @@
     vpn = {
       enable = true;
       wgConf = "/data/.secret/wg.conf";
+      accessibleFrom = [
+	"192.168.178.0/24"
+      ];
     };
 
     jellyfin = {
@@ -30,6 +34,10 @@
         bind-address-ipv6 = "0.0.0.0"; # disable IPv6 binding
         network-interface = "wg-br";
 
+	# Allow RPC from anywhere (LAN)
+    	rpc-bind-address = "0.0.0.0";
+    	rpc-whitelist-enabled = false;
+      
         # Disable any potential IPv6 peer leaks
         utp-enabled = true; # only over IPv4
         dht-enabled = true;
@@ -46,5 +54,22 @@
     lidarr.enable = false;
     readarr.enable = false;
   };
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver # previously vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+      vpl-gpu-rt # QSV on 11th gen or newer
+      #intel-media-sdk # QSV up to 11th gen
+    ];
+  };
+
   networking.firewall.allowedTCPPorts = [7878 8989 9696 5055 9091];
 }
