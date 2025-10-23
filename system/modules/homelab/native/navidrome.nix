@@ -39,4 +39,6 @@
       requires = ["mnt-share.mount"];
     };
   };
+
+  networking.firewall.allowedTCPPorts = [4533];
 }
