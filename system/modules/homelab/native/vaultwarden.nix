@@ -10,12 +10,12 @@
       DOMAIN = "https://vault.nicknase27.com";
       SIGNUPS_ALLOWED = true;
 
-      ROCKET_ADDRESS = "127.0.0.1";
+      ROCKET_ADDRESS = "0.0.0.0";
       ROCKET_PORT = 8222;
       ROCKET_LOG = "critical";
     };
   };
 
   # Open firewall ports for HTTP, HTTPS, and Vaultwarden WebSocket
-  networking.firewall.allowedTCPPorts = [80 443 3012];
+  networking.firewall.allowedTCPPorts = [80 443 3012 8222];
 }
