@@ -70,4 +70,31 @@
     # If you use Pi-hole's DHCP server feature, also add:
     # allowedUDPPorts = [ 53 67 ];       # DHCP server port
   };
+
+  services = {
+    keepalived = {
+      enable = true;
+      openFirewall = true;
+      extraConfig = ''
+        vrrp_instance VI_1 {
+          state MASTER
+          interface eno1
+          virtual_router_id 100
+          advert_int 1
+          unicast_src_ip 192.168.178.210
+          unicast_peer {
+            192.168.178.202
+          }
+          priority 20
+          authentication {
+            auth_type PASS
+            auth_pass AdfG4IJK
+          }
+          virtual_ipaddress {
+            192.168.178.250/24
+          }
+        }
+      '';
+    };
+  };
 }
