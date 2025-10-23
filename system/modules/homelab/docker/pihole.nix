@@ -76,23 +76,54 @@
       enable = true;
       openFirewall = true;
       extraConfig = ''
-        vrrp_instance VI_1 {
-          state MASTER
-          interface eno1
-          virtual_router_id 100
-          advert_int 1
-          unicast_src_ip 192.168.178.210
-          unicast_peer {
-            192.168.178.202
-          }
-          priority 20
-          authentication {
-            auth_type PASS
-            auth_pass AdfG4IJK
-          }
-          virtual_ipaddress {
-            192.168.178.250/24
-          }
+        global_defs {
+            router_id HOST1
+        }
+
+        # VRRP instance for IPv4
+        vrrp_instance VI_1_IPV4 {
+            state MASTER
+            interface eno1
+            virtual_router_id 51
+            priority 150
+            advert_int 1
+
+            unicast_src_ip 192.168.178.210
+            unicast_peer {
+                192.168.178.202
+            }
+
+            virtual_ipaddress {
+                192.168.178.250/24
+            }
+
+            authentication {
+                auth_type PASS
+                auth_pass AdfG4IJK
+            }
+        }
+
+        # VRRP instance for IPv6
+        vrrp_instance VI_1_IPV6 {
+            state MASTER
+            interface eno1
+            virtual_router_id 52
+            priority 150
+            advert_int 1
+
+            unicast_src_ip fda0:be70:c013:0:5d95:9efc:6bcb:cff2
+            unicast_peer {
+                fda0:be70:c013:0:be24:11ff:fe84:ac69
+            }
+
+            virtual_ipaddress {
+                fda0:be70:c013::250/64
+            }
+
+            authentication {
+                auth_type PASS
+                auth_pass AdfG4IJK
+            }
         }
       '';
     };
