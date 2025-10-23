@@ -18,9 +18,6 @@
     jellyfin = {
       enable = true;
       openFirewall = true;
-      expose.https = {
-        enable = false;
-      };
     };
 
     transmission = {
