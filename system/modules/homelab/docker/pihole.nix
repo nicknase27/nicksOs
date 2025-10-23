@@ -151,4 +151,5 @@
     description = "Unprivileged user for Keepalived health scripts";
     shell = "/run/current-system/sw/bin/nologin";
   };
+  users.groups.keepalived_script = {};
 }
