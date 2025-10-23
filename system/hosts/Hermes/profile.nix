@@ -15,5 +15,4 @@
 
   # Optional: disable virtual consoles you don’t need
   services.getty.helpLine = lib.mkForce "";
-  services.getty.ttyDefaults = lib.mkForce {};
 }
