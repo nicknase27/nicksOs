@@ -4,7 +4,7 @@
       enable = true;
       config = {
         theme = "ansi";
-        style = "numbers,changes";
+        style = "changes";
       };
     };
   };

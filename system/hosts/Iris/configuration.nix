@@ -75,21 +75,4 @@
     flake = "/home/nick/nicksOs/system#Iris";
     dates = "monthly";
   };
-
-  users.users.root = {
-    openssh = {
-      authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwouafzGDRGeMJQbm9ME/1CSkXicdL7TthJjWkhyLYd nick@Theseus"
-      ];
-    };
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no"; # OR "no" for strict denial
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
 }

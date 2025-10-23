@@ -5,14 +5,14 @@
   ...
 }: {
   imports = [
-    ./system/audio.nix
+    # Core system modules
     ./system/boot.nix
-    ./system/fonts.nix
-    ./system/locale.nix
     ./system/networking.nix
     ./system/users.nix
-    ./system/maintenance.nix
     ./system/services.nix
+    ./system/maintenance.nix
+    ./system/services/ssh.nix
+    ./system/locale.nix
     ./system/keymap.nix
   ];
 }

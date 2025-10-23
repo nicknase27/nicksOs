@@ -16,7 +16,7 @@
     commit = "git commit -m";
     unstow = "stow -D";
     vim = "nvim";
-    cat = "bat";
+    cat = "bat -pp";
   };
 in {
   programs = {
