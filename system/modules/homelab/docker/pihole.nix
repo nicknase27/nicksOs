@@ -120,10 +120,10 @@
                 fda0:be70:c013::250/64
             }
 
-            authentication {
-                auth_type PASS
-                auth_pass AdfG4IJK
-            }
+            #authentication {
+            #    auth_type PASS
+            #    auth_pass AdfG4IJK
+            #}
         }
       '';
     };
