@@ -61,11 +61,11 @@
   #  externalInterface = "eno1";
   #  internalInterfaces = ["wg0"];
   #};
-
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = true;
-    "net.ipv6.conf.all.forwarding" = true; # Enable for IPv6 support
-  };
+  #
+  #boot.kernel.sysctl = {
+  #  "net.ipv4.ip_forward" = true;
+  #k  "net.ipv6.conf.all.forwarding" = true; # Enable for IPv6 support
+  #};
 
   networking.firewall.allowedUDPPorts = [51820];
   networking.firewall.checkReversePath = false;
