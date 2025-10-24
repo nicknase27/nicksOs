@@ -7,7 +7,7 @@
   virtualisation.oci-containers.containers."pihole" = {
     image = "pihole/pihole:latest";
     environment = {
-      "FTLCONF_dns_listeningMode" = "local";
+      "FTLCONF_dns_listeningMode" = "all";
       "FTLCONF_webserver_port" = "8080o,[::]:8080o,8443os,[::]:8443os";
       "TZ" = "Europe/Berlin";
     };

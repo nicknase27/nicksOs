@@ -18,6 +18,8 @@
     log-driver = "journald";
     extraOptions = [
       "--network=host"
+      "--dns=1.1.1.1"
+      "--dns=8.8.8.8"
     ];
   };
   systemd.services."docker-nginx-proxy-manager-app" = {
