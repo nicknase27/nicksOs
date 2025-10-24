@@ -34,16 +34,21 @@
   networking = {
     hostName = "Theseus";
     useDHCP = lib.mkForce false;
-    #nameservers = [
-    # "192.168.178.210"
-    # "192.168.178.202"
-    # "fda0:be70:c013:0:83a7:1091:7764:69bd"
-    # "fda0:be70:c013:0:be24:11ff:fe84:ac69"
-    #];
+    interfaces.enp34s0 = {
+      ipv4.addresses = [
+        {
+          address = "192.168.178.20";
+          prefixLength = 24;
+        }
+      ];
+      ipv6.addresses = [
+        {
+          address = "fda0:be70:c013:0::210";
+          prefixLength = 64;
+        }
+      ];
+    };
   };
-
-  networking.firewall.allowedUDPPorts = [51820];
-  networking.firewall.checkReversePath = false;
 
   system.autoUpgrade = {
     enable = true;

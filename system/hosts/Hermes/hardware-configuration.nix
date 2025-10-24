@@ -9,13 +9,21 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = [];
-  boot.kernelParams = [
-    "loglevel=3"
-  ];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = [];
+    };
+    kernelModules = [];
+    extraModulePackages = [];
+    kernelParams = [
+      "loglevel=3"
+    ];
+    sysctl = {
+      "net.ipv4.ip_forward" = lib.mkForce true;
+      "net.ipv6.conf.all.forwarding" = lib.mkForce true;
+    };
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/055ae256-dfaf-4957-8e92-2a494ffe37a3";

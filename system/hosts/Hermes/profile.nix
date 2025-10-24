@@ -7,6 +7,7 @@
   imports = [
     ../../modules/profiles/server.nix
     ../../modules/homelab.nix
+    ../../modules/homelab/native/wireguard/peer.nix
 
     #../../modules/user/apps/misc.nix
   ];

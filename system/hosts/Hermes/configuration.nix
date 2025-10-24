@@ -27,55 +27,24 @@
     useDHCP = lib.mkForce false;
   };
 
-  networking.wireguard.interfaces.wg0 = {
-    ips = ["10.10.0.2/32"];
-    privateKeyFile = "/etc/wireguard/privatekey";
-
-    # NAT so LAN devices can reply to Peer C traffic via homelab
-    postSetup = ''
-      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.178.0/24 -o eno1 -j MASQUERADE
-      ${pkgs.iptables}/bin/iptables -A FORWARD -i wg0 -j ACCEPT
-      ${pkgs.iptables}/bin/iptables -A FORWARD -o wg0 -j ACCEPT
-    '';
-
-    postShutdown = ''
-      ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.178.0/24 -o eno1 -j MASQUERADE
-      ${pkgs.iptables}/bin/iptables -D FORWARD -i wg0 -j ACCEPT
-      ${pkgs.iptables}/bin/iptables -D FORWARD -o wg0 -j ACCEPT
-
-    '';
-
-    peers = [
-      {
-        publicKey = "WHeyTLauAOdX7ASkCmBO5ouI5Ew6aMvsbmBGJhOZkW4=";
-        endpoint = "130.61.151.118:51820";
-        allowedIPs = ["10.10.0.0/24"]; # access to Peer C and VPS
-        persistentKeepalive = 25;
-      }
-    ];
+  networking = {
+    interfaces = {
+      eno1 = {
+        ipv4.addresses = [
+          {
+            address = "192.168.178.210";
+            prefixLength = 24;
+          }
+        ];
+        ipv6.addresses = [
+          {
+            address = "fda0:be70:c013:0::210";
+            prefixLength = 64;
+          }
+        ];
+      };
+    };
   };
-
-  # Optional: allow routing to your LAN (192.168.178.0/24)
-  networking.nat = {
-    enable = true;
-    externalInterface = "eno1";
-    internalInterfaces = ["wg0"];
-  };
-
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = true;
-    "net.ipv6.conf.all.forwarding" = true; # Enable for IPv6 support
-  };
-
-  networking.firewall.allowedUDPPorts = [51820];
-  networking.firewall.checkReversePath = false;
-
-  networking.interfaces.eno1.ipv6.addresses = [
-    {
-      address = "fda0:be70:c013:0::210";
-      prefixLength = 64;
-    }
-  ];
 
   system.autoUpgrade = {
     enable = true;

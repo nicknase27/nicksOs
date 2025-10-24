@@ -8,5 +8,6 @@
     ../../modules/profiles/server.nix
     #../../modules/homelab.nix
     ../../modules/system/services/fail2ban.nix
+    ../../modules/homelab/native/wireguard/server.nix
   ];
 }
