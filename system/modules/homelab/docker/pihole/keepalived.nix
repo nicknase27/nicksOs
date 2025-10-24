@@ -33,7 +33,9 @@
           ];
 
           virtualIps = [
-            "192.168.178.250/24"
+            {
+              address = "192.168.178.250/24";
+            }
           ];
 
           trackScripts = [
@@ -53,7 +55,9 @@
           ];
 
           virtualIps = [
-            "fda0:be70:c013::250/64"
+            {
+              address = "fda0:be70:c013::250/64";
+            }
           ];
 
           trackScripts = [
