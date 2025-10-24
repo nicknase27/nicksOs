@@ -14,28 +14,24 @@
       IPV4="127.0.0.1"
       IPV6="::1"
 
-      # Use full path to dig to avoid $PATH issues
-      DIG="/run/current-system/sw/bin/dig"
-
       # Timeout for dig queries
       TIMEOUT=2
 
       # Check IPv4
-      $DIG @$IPV4 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
+      /run/current-system/sw/bin/dig @$IPV4 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
       if [ $? -eq 0 ]; then
           exit 0
       fi
 
       # Check IPv6
-      $DIG @$IPV6 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
+      /run/current-system/sw/bin/dig @$IPV6 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
       if [ $? -eq 0 ]; then
           exit 0
       fi
 
       OTHER_HOST="192.168.178.202"
-      PING=$(command -v ping)
-      if [ -n $PING ]; then
-        $PING -c 1 -W 1 "$OTHER_HOST" > /dev/null 2>&1
+      if [ -n ping ]; then
+        ping -c 1 -W 1 "$OTHER_HOST" > /dev/null 2>&1
         if [ $? -eq 0 ]; then
             exit 0
         fi
