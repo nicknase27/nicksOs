@@ -19,9 +19,11 @@
     kernelParams = [
       "loglevel=3"
     ];
-    sysctl = {
-      "net.ipv4.ip_forward" = lib.mkForce true;
-      "net.ipv6.conf.all.forwarding" = lib.mkForce true;
+    kernel = {
+      sysctl = {
+        "net.ipv4.ip_forward" = lib.mkForce true;
+        "net.ipv6.conf.all.forwarding" = lib.mkForce true;
+      };
     };
   };
 

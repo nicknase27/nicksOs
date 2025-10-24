@@ -11,18 +11,26 @@ in {
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
-  boot.kernelParams = [
-    "loglevel=3"
-    "amdgpu.gpu_recovery=1"
-    "amdgpu.ppfeaturemask=0xfffd3fff"
-  ];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = ["amdgpu"];
+    };
+    kernelModules = ["kvm-amd" "amdgpu"];
+    extraModulePackages = [];
+    kernelParams = [
+      "loglevel=3"
+      "amdgpu.gpu_recovery=1"
+      "amdgpu.ppfeaturemask=0xfffd3fff"
+    ];
+  };
 
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = ["amdpu"];
+    };
+  };
 
   hardware = {
     graphics = {
