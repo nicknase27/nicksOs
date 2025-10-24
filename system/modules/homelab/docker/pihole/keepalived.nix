@@ -36,11 +36,6 @@
             "192.168.178.250/24"
           ];
 
-          authentication = {
-            authType = "PASS";
-            authPass = "AdfG4IJK";
-          };
-
           trackScripts = [
             "chk_pihole"
           ];
