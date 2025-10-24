@@ -4,7 +4,6 @@
     ./homelab/native/navidrome.nix
     ./homelab/native/vaultwarden.nix
     ./homelab/native/cloudflared.nix
-    #./homelab/native/audiobookshelf.nix
     ./homelab/native/nixarr.nix
 
     # --- Docker --- #

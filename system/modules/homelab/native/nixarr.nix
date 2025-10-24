@@ -15,7 +15,7 @@
       enable = true;
       wgConf = "/data/.secret/wg.conf";
       accessibleFrom = [
-	"192.168.178.0/24"
+        "192.168.178.0/24"
       ];
     };
 
@@ -34,10 +34,10 @@
         bind-address-ipv6 = "0.0.0.0"; # disable IPv6 binding
         network-interface = "wg-br";
 
-	# Allow RPC from anywhere (LAN)
-    	rpc-bind-address = "0.0.0.0";
-    	rpc-whitelist-enabled = false;
-      
+        # Allow RPC from anywhere (LAN)
+        rpc-bind-address = "0.0.0.0";
+        rpc-whitelist-enabled = false;
+
         # Disable any potential IPv6 peer leaks
         utp-enabled = true; # only over IPv4
         dht-enabled = true;
@@ -56,9 +56,9 @@
   };
 
   nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
   };
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
