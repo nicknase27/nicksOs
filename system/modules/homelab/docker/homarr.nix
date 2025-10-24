@@ -19,6 +19,7 @@
     log-driver = "journald";
     extraOptions = [
       "--network=bridge"
+      "--dns=192.168.178.250"
     ];
   };
   systemd.services."docker-homarr" = {
