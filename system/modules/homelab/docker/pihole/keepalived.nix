@@ -14,30 +14,45 @@
       IPV4="127.0.0.1"
       IPV6="::1"
 
-      # Use full path to dig to avoid $PATH issues
-      DIG="/run/current-system/sw/bin/dig"
+      # Resolve dig dynamically
+      DIG=$(command -v dig)
+      if [ -z "$DIG" ]; then
+          echo "$(date): Error: dig not found" >> /var/log/keepalived_check_pihole.log
+          exit 1
+      fi
 
       # Timeout for dig queries
       TIMEOUT=2
 
+      # Log file for debugging
+      LOG="/var/log/keepalived_check_pihole.log"
+
+      # Log function
+      log() {
+          echo "$(date): $1" >> "$LOG"
+      }
+
       # Check IPv4
-      $DIG @$IPV4 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
+      "$DIG" @$IPV4 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
       if [ $? -eq 0 ]; then
+          log "IPv4 check passed"
           exit 0
       fi
 
       # Check IPv6
-      $DIG @$IPV6 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
+      "$DIG" @$IPV6 pi.hole +short +time=$TIMEOUT > /dev/null 2>&1
       if [ $? -eq 0 ]; then
+          log "IPv6 check passed"
           exit 0
       fi
 
-      # Check failed on both IPv4 and IPv6 → return 1 to trigger failover
+      # Check failed on both IPv4 and IPv6
+      log "Both IPv4 and IPv6 checks failed"
       exit 1
     '';
-    mode = "0755"; # Make the script executable
-    user = "keepalived_script"; # Match Keepalived's script user
-    group = "keepalived_script"; # Match Keepalived's script group
+    mode = "0755";
+    user = "keepalived_script";
+    group = "keepalived_script";
   };
 
   services = {
