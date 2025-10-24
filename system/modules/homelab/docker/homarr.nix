@@ -3,13 +3,6 @@
   lib,
   ...
 }: {
-  # Runtime
-  virtualisation.docker = {
-    enable = true;
-    autoPrune.enable = true;
-  };
-  virtualisation.oci-containers.backend = "docker";
-
   # Containers
   virtualisation.oci-containers.containers."homarr" = {
     image = "ghcr.io/homarr-labs/homarr:latest";
@@ -25,7 +18,7 @@
     ];
     log-driver = "journald";
     extraOptions = [
-      "--network=bridge"
+      "--network=host"
     ];
   };
   systemd.services."docker-homarr" = {

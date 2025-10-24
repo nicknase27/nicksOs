@@ -3,13 +3,6 @@
   lib,
   ...
 }: {
-  # Runtime
-  virtualisation.docker = {
-    enable = true;
-    autoPrune.enable = true;
-  };
-  virtualisation.oci-containers.backend = "docker";
-
   # Containers
   virtualisation.oci-containers.containers."nginx-proxy-manager-app" = {
     image = "jc21/nginx-proxy-manager:latest";
