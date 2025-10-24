@@ -87,7 +87,7 @@
 
           unicastSrcIp = "fda0:be70:c013:0::210";
           unicastPeers = [
-            "fda0:be70:c013::202"
+            "fda0:be70:c013:0::202"
           ];
 
           virtualIps = [
