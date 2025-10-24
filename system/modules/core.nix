@@ -11,7 +11,6 @@
     ./system/users.nix
     ./system/services.nix
     ./system/maintenance.nix
-    ./system/services/ssh.nix
     ./system/locale.nix
     ./system/keymap.nix
   ];

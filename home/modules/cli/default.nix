@@ -6,5 +6,6 @@
     ./shell.nix
     ./bat.nix
     ./eza.nix
+    ./ssh.nix
   ];
 }

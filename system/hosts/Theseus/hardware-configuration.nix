@@ -37,7 +37,11 @@ in {
       enable = true;
       enable32Bit = true;
     };
-    keyboard.qmk.enable = true;
+    keyboard = {
+      qmk = {
+        enable = true;
+      };
+    };
   };
 
   fileSystems."/" = {
