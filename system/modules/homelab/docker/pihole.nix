@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
-    ./container.nix
-    ./keepalived.nix
-    ./users.nix
+    ./pihole/container.nix
+    ./pihole/keepalived.nix
+    ./pihole/users.nix
   ];
 }
