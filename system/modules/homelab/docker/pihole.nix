@@ -123,7 +123,7 @@
               priority 150
               advert_int 1
 
-              unicast_src_ip fda0:be70:c013:0:b4fd:d357:431b:e3a8
+              unicast_src_ip fda0:be70:c013:0::210
               unicast_peer {
                   fda0:be70:c013:0:be24:11ff:fe84:ac69
               }

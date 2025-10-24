@@ -70,6 +70,13 @@
   networking.firewall.allowedUDPPorts = [51820];
   networking.firewall.checkReversePath = false;
 
+  networking.interfaces.eno1.ipv6.addresses = [
+    {
+      address = "fda0:be70:c013:0::210";
+      prefixLength = 64;
+    }
+  ];
+
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
