@@ -40,23 +40,25 @@
   environment.etc."keepalived/check_npmx.sh" = {
     text = ''
       #!/run/current-system/sw/bin/bash
-      DOCKER_BIN="/run/current-system/sw/bin/docker"
-      CONTAINER_NAME="nginx-proxy-manager-app"
+      # NPMX health check via HTTP
 
-      $DOCKER_BIN inspect -f '{{.State.Running}}' $CONTAINER_NAME 2>/dev/null | grep -q true
+      NPMX_PORT=81
+      TIMEOUT=2
+
+      # Try to get a page from the container
+      curl -s --max-time $TIMEOUT http://192.168.178.210:$NPMX_PORT/ | grep -q "Nginx Proxy Manager"
       if [ $? -eq 0 ]; then
-          exit 0
+          exit 0  # Service is up
       else
-          exit 1
+          exit 1  # Service down
       fi
+
 
     '';
     mode = "0755"; # Make the script executable
     user = "keepalived_script"; # Match Keepalived's script user
     group = "keepalived_script"; # Match Keepalived's script group
   };
-
-  users.users."keepalived_script".extraGroups = ["docker"];
 
   services = {
     keepalived = {
