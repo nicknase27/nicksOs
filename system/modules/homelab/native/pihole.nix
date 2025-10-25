@@ -25,16 +25,19 @@
           blockESNI = true;
           EDNS0ECS = true;
           ignoreLocalhost = true;
+          dnssec = true;
           showDNSSEC = true;
           analyzeOnlyAandAAAA = false;
           replyWhenBusy = "ALLOW";
           blockTTL = 2;
           expandHosts = false;
           domain = "lan";
-
           interface = "eno1";
           listeningMode = "All";
           queryLogging = true;
+          revServers = [
+            "true,192.168.178.0/24,192.168.178.1,fritz.box"
+          ];
 
           cache = {
             size = 10000;
@@ -101,6 +104,9 @@
         webserver = {
           domain = lib.mkForce "pi.hole";
           port = lib.mkForce "8080o,[::]:8080o,8443os,[::]:8443os";
+          paths = {
+            webhome = "/admin/";
+          };
         };
       };
 
