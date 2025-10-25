@@ -1,6 +1,7 @@
 {pkgs, ...}: let
-  syncScript = pkgs.writeFile {
+  syncScript = pkgs.writeTextFile {
     name = "sync-npm-to-lxc.sh";
+    executable = true;
     text = ''
       #!/run/current-system/sw/bin/bash
 
@@ -77,7 +78,7 @@
   };
 in {
   # Ensure rsync and openssh are available
-  environment.systemPackages = with pkgs; [rsync openssh];
+  environment.systemPackages = with pkgs; [rsync openssh coreutils];
 
   # Systemd service for syncing
   systemd.services.npm-sync = {
