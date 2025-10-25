@@ -15,7 +15,7 @@
       enable = true;
     };
     useDHCP = lib.mkDefault true;
-    dhcpc = {
+    dhcpcd = {
       persistent = lib.mkDefault true;
     };
   };
