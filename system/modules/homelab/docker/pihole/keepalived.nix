@@ -126,7 +126,7 @@
         VI_2_IPV4 = {
           state = "MASTER";
           interface = "eno1";
-          virtualRouterId = 52;
+          virtualRouterId = 53;
           priority = 150;
 
           unicastSrcIp = "192.168.178.210";
@@ -148,7 +148,7 @@
         VI_2_IPV6 = {
           state = "MASTER";
           interface = "eno1";
-          virtualRouterId = 52;
+          virtualRouterId = 54;
           priority = 150;
 
           unicastSrcIp = "fda0:be70:c013:0::210";
