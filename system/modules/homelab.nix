@@ -11,5 +11,10 @@
     ./homelab/docker/pihole.nix
     ./homelab/docker/nginxpm.nix
     ./homelab/docker/homarr.nix
+
+    # --- Keepalived --- #
+    ./homelab/keepalived/keepalived.nix
+    ./homelab/keepalived/npmx/proxy.nix
+    ./homelab/keepalived/dns.nix
   ];
 }

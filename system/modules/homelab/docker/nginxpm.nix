@@ -3,10 +3,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./test.nix
-  ];
-
   # Containers
   virtualisation.oci-containers.containers."nginx-proxy-manager-app" = {
     image = "jc21/nginx-proxy-manager:latest";
