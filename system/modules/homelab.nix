@@ -5,6 +5,7 @@
     ./homelab/native/vaultwarden.nix
     ./homelab/native/cloudflared.nix
     ./homelab/native/nixarr.nix
+    ./homelab/native/pihole.nix
 
     # --- Docker --- #
     ./homelab/docker/docker.nix
