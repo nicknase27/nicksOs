@@ -1,4 +1,12 @@
 {lib, ...}: {
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [53 8080 8443];
+    allowedUDPPorts = [53];
+    # If you use Pi-hole's DHCP server feature, also add:
+    # allowedUDPPorts = [ 53 67 ];
+  };
+
   services = {
     pihole-web = {
       enable = true;
@@ -49,6 +57,29 @@
             count = 1000;
             interval = 60;
           };
+
+          hosts = [
+            "192.168.178.250 dns.nicknase27.com"
+            "192.168.178.245 dns1.nicknase27.com"
+            "192.168.178.245 dns2.nicknase27.com"
+            "192.168.178.245 npmx.nicknase27.com"
+            "192.168.178.210 npmx1.nicknase27.com"
+            "192.168.178.203 npmx2.nicknase27.com"
+            "192.168.178.245 jellyseerr.nicknase27.com"
+            "192.168.178.245 music.nicknase27.com"
+            "192.168.178.245 prowlarr.nicknase27.com"
+            "192.168.178.245 radarr.nicknase27.com"
+            "192.168.178.245 sonarr.nicknase27.com"
+            "192.168.178.245 torrent.nicknase27.com"
+            "192.168.178.245 watch.nicknase27.com"
+            "192.168.178.245 vault.nicknase27.com"
+            "192.168.178.245 storage.nicknase27.com"
+            "192.168.178.245 pxmx.nicknase27.com"
+            "192.168.178.245 hermes.lan"
+            "192.168.178.20 theseus.lan"
+            "192.168.178.245 dash.nicknase27.com"
+            "192.168.178.1 fritz.box"
+          ];
         };
 
         ntp = {
