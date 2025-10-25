@@ -105,7 +105,7 @@
           domain = lib.mkForce "pi.hole";
           port = lib.mkForce "8080o,[::]:8080o,8443os,[::]:8443os";
           paths = {
-            webhome = "/admin/";
+            webhome = lib.mkForce "/admin/";
           };
         };
       };
