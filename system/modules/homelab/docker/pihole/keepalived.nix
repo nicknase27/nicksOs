@@ -40,19 +40,25 @@
   environment.etc."keepalived/check_npmx.sh" = {
     text = ''
       #!/run/current-system/sw/bin/bash
-      # NPMX health check via HTTP
+      # Health check for Nginx Proxy Manager on NixOS (rootless)
 
-      NPMX_PORT=81
-      TIMEOUT=2
+      # NixOS Host
+      MASTER_IP="192.168.178.210"
+      # Port exposed by NPMX container
+      PORT=81
+      # Timeout for curl
+      TIMEOUT=5
+      # Full path to curl in NixOS
+      CURL_BIN="/run/current-system/sw/bin/curl"
+      GREP_BIN="/run/current-system/sw/bin/grep"
 
-      # Try to get a page from the container
-      curl -s --max-time $TIMEOUT http://192.168.178.210:$NPMX_PORT/ | grep -q "Nginx Proxy Manager"
+      # Check if NPMX web UI is responding
+      $CURL_BIN -s --max-time $TIMEOUT http://$MASTER_IP:$PORT/ | $GREP_BIN -q "<title>Nginx Proxy Manager</title>"
       if [ $? -eq 0 ]; then
-          exit 0  # Service is up
+          exit 0  # Service is healthy
       else
-          exit 1  # Service down
+          exit 1  # Service down → trigger failover
       fi
-
 
     '';
     mode = "0755"; # Make the script executable
