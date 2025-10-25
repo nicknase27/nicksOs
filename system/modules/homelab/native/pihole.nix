@@ -2,7 +2,7 @@
   services = {
     pihole-web = {
       enable = true;
-      ports = ["8081r" "6443s"];
+      ports = ["8080r" "8443s"];
     };
 
     pihole-ftl = {
@@ -68,8 +68,8 @@
         };
 
         webserver = {
-          domain = lib.mkForce "pi.hole2";
-          port = lib.mkForce "8081o,[::]:8081o,6443os,[::]:6443os";
+          domain = lib.mkForce "pi.hole";
+          port = lib.mkForce "8080o,[::]:8080o,8443os,[::]:8443os";
         };
       };
 
