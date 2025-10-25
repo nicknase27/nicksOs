@@ -11,7 +11,6 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disko.nix
     ./profile.nix
-    ../common.nix
   ];
 
   users.users = {

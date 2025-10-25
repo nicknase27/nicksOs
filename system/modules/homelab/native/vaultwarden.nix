@@ -7,8 +7,8 @@
     environmentFile = "/var/lib/vaultwarden/vaultwarden.env";
     config = {
       # Refer to https://github.com/dani-garcia/vaultwarden/blob/main/.env.template
-      DOMAIN = "https://vault.nicknase27.com";
-      SIGNUPS_ALLOWED = true;
+      DOMAIN = "https://vt.nicknase27.com";
+      SIGNUPS_ALLOWED = false;
 
       ROCKET_ADDRESS = "0.0.0.0";
       ROCKET_PORT = 8222;
