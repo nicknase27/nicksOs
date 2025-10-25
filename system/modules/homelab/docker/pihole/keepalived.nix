@@ -56,6 +56,8 @@
     group = "keepalived_script"; # Match Keepalived's script group
   };
 
+  users.users."keepalived_script".extraGroups = ["docker"];
+
   services = {
     keepalived = {
       enable = true;
