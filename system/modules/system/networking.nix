@@ -4,15 +4,19 @@
   lib,
   ...
 }: {
-  ### Networking
-
   networking = {
-    networkmanager.enable = true;
     enableIPv6 = true;
-    useDHCP = lib.mkDefault true;
-    dhcpcd.persistent = true;
     firewall = {
       enable = true;
+    };
+
+    # Use NetworkManager and DHCP by default
+    networkmanager = {
+      enable = true;
+    };
+    useDHCP = lib.mkDefault true;
+    dhcpc = {
+      persistent = lib.mkDefault true;
     };
   };
 }

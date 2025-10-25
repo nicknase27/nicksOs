@@ -33,7 +33,12 @@
 
   networking = {
     hostName = "Theseus";
-    useDHCP = lib.mkForce false;
+
+    # Override global defaults
+    networkmanager.enable = lib.mkForce false;
+    useNetworkd = true;
+    useDHCP = false;
+
     interfaces.enp34s0 = {
       ipv4.addresses = [
         {
@@ -43,12 +48,24 @@
       ];
       ipv6.addresses = [
         {
-          address = "fda0:be70:c013:0::210";
+          address = "fda0:be70:c013:0::20";
           prefixLength = 64;
         }
       ];
     };
+
+    defaultGateway = {
+      address = "192.168.178.1";
+      interface = "enp34s0";
+    };
+    defaultGateway6 = {
+      address = "fda0:be70:c013::36e1:a9ff:fece:9ace";
+      interface = "enp34s0";
+    };
   };
+
+  # Avoid blocking rebuilds for static IP hosts
+  systemd.services."systemd-networkd-wait-online".enable = lib.mkForce false;
 
   system.autoUpgrade = {
     enable = true;
