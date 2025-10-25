@@ -68,7 +68,7 @@
         };
 
         webserver = {
-          domain = "pi.hole2";
+          domain = lib.mkForce "pi.hole2";
           port = lib.mkForce "8081o,[::]:8081o,6443os,[::]:6443os";
         };
       };
