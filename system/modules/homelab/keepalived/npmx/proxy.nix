@@ -66,9 +66,9 @@
             }
           ];
 
-          trackScripts = [
-            "chk_npmx"
-          ];
+          #trackScripts = [
+          #  "chk_npmx"
+          #];
         };
 
         VI_2_IPV6 = {
@@ -88,9 +88,9 @@
             }
           ];
 
-          trackScripts = [
-            "chk_npmx"
-          ];
+          #trackScripts = [
+          #  "chk_npmx"
+          #];
         };
       };
     };

@@ -21,6 +21,7 @@
       };
       cloudflare = {
         file = ../../secrets/cloudflare.age;
+	path = "/var/lib/cloudflared/api.txt";
       };
       cloudflare-cert = {
         file = ../../secrets/cloudflare-cert.age;
