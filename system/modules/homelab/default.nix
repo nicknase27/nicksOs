@@ -5,5 +5,8 @@
 
     # --- Docker --- #
     ./docker
+
+    # --- Keepalived --- #
+    ./keepalived
   ];
 }
