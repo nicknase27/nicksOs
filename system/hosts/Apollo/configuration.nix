@@ -9,9 +9,8 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
-    ../../modules/homelab
+    #../../modules/homelab
     ../../modules/homelab/keepalived/master.nix
-    ../../modules/system/server/components/wg-peer.nix
   ];
 
   users.users = {
@@ -21,11 +20,16 @@
     };
   };
 
+  services.getty.autologinUser = "nick";
+
+  # Optional: disable virtual consoles you don’t need
+  services.getty.helpLine = lib.mkForce "";
+
   environment.systemPackages = with pkgs; [
   ];
 
   networking = {
-    hostName = "Hermes";
+    hostName = "Apollo";
     useDHCP = lib.mkForce false;
   };
 
@@ -34,13 +38,13 @@
       eno1 = {
         ipv4.addresses = [
           {
-            address = "192.168.178.210";
+            address = "192.168.178.215";
             prefixLength = 24;
           }
         ];
         ipv6.addresses = [
           {
-            address = "fda0:be70:c013:0::210";
+            address = "fda0:be70:c013:0::215";
             prefixLength = 64;
           }
         ];
@@ -59,7 +63,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    flake = "/home/nick/nicksOs/system/#Hermes";
+    flake = "/home/nick/nicksOs/system/#Apollo";
     dates = "monthly";
   };
 

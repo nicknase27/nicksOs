@@ -31,9 +31,9 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/Theseus/configuration.nix
-          ./hosts/common.nix
+          ./modules/system/common
+          ./modules/system/desktop
           inputs.agenix.nixosModules.default
-          inputs.nixarr.nixosModules.default
         ];
       };
       Hermes = nixpkgs.lib.nixosSystem {
@@ -41,7 +41,19 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/Hermes/configuration.nix
-          ./hosts/common.nix
+          ./modules/system/common
+          ./modules/system/server
+          inputs.agenix.nixosModules.default
+          inputs.nixarr.nixosModules.default
+        ];
+      };
+      Apollo = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/Apollo/configuration.nix
+          ./modules/system/common
+          ./modules/system/server
           inputs.agenix.nixosModules.default
           inputs.nixarr.nixosModules.default
         ];
@@ -51,8 +63,8 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/Iris/configuration.nix
-          ./hosts/Iris/hardware-configuration.nix
-          ./hosts/common.nix
+          ./modules/system/common
+          ./modules/system/server
           disko.nixosModules.disko
           inputs.agenix.nixosModules.default
         ];

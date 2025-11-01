@@ -9,11 +9,6 @@
 
   home.packages = with pkgs; [
     yazi
-    keepassxc
-    rbw
-    xdotool
-    wtype
-    rofi-rbw
     playerctl
     feishin
     ungoogled-chromium

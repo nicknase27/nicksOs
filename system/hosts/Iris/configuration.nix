@@ -9,8 +9,11 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
+    ./hardware-configuration.nix
     ./disko.nix
-    ./profile.nix
+    ./secrets.nix
+
+    ../../modules/system/server/components/wg-server.nix
   ];
 
   users.users = {

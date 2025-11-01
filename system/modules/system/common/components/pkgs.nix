@@ -1,0 +1,35 @@
+{pkgs, inputs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    inputs.agenix.packages."${system}".default
+    inputs.compose2nix.packages."${system}".default
+    fastfetch
+    starship
+    neovim
+    feh
+    bash
+    fish
+    btop
+    bat
+    bat-extras.core
+    eza
+    fzf
+    libnotify
+    alejandra
+    gzip
+    p7zip
+    xc
+    gcc
+    clang
+    python3
+    python3Packages.pip
+    ripgrep
+    imagemagick
+    jetbrains-mono
+    git
+    mpv
+    baobab
+    bind
+    wireguard-tools
+  ];
+}

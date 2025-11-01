@@ -7,9 +7,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./theseus-secrets.nix
-
-    ./profile.nix
+    ./secrets.nix
   ];
 
   users.users = {

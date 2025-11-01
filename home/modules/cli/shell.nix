@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -25,11 +26,6 @@ in {
       interactiveShellInit = ''
         set fish_greeting
       '';
-      shellInit = ''
-          if test "$TERM" = "xterm-kitty"
-            alias ssh="kitty +kitten ssh"
-        end
-      '';
       shellAliases = myAliases;
       shellAbbrs = {
         "-h" = {
@@ -44,12 +40,6 @@ in {
       functions = {
         nixcf = {
           body = ''nvim (find -L "$HOME/nicksOs" -type f -not -path "*/.git/*" -o -path "$HOME/nicksOs/.git/config" | sed "s|$HOME/nicksOs/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/nicksOs/{}" | xargs -I{} echo "$HOME/nicksOs/{}")'';
-        };
-        hyprcf = {
-          body = ''nvim (find -L "$HOME/.config/hypr" -type f | sed "s|$HOME/.config/hypr/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/hypr/{}" | xargs -I{} echo "$HOME/.config/hypr/{}")'';
-        };
-        barcf = {
-          body = ''nvim (find -L "$HOME/.config/waybar" -type f | sed "s|$HOME/.config/waybar/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/waybar/{}" | xargs -I{} echo "$HOME/.config/waybar/{}")'';
         };
         vimcf = {
           body = ''nvim (find -L "$HOME/.config/nvim" -type f | sed "s|$HOME/.config/nvim/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/nvim/{}" | xargs -I{} echo "$HOME/.config/nvim/{}")'';
@@ -82,7 +72,7 @@ in {
     bash = {
       enable = true;
       shellAliases = myAliases;
-      initExtra = ''
+      initExtra = lib.mkBefore ''
         if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
         then
         shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""

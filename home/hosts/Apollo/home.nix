@@ -9,10 +9,10 @@
   programs.fish = {
     functions = {
       rebuild = {
-        body = "sudo nixos-rebuild switch --flake ~/nicksOs/system/#Iris";
+        body = "sudo nixos-rebuild switch --flake ~/nicksOs/system/#Apollo";
       };
       swap = {
-        body = "home-manager switch --flake ~/nicksOs/home/#nick@Iris";
+        body = "home-manager switch --flake ~/nicksOs/home/#nick@Apollo";
       };
     };
   };
