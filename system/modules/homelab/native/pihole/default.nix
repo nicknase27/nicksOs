@@ -20,7 +20,10 @@
 
       settings = {
         dns = {
-          upstreams = ["1.1.1.1"];
+          upstreams = [
+            "1.1.1.1"
+            "2606:4700:4700::1111"
+          ];
 
           # Use non-default values / custom behavior
           CNAMEdeepInspect = true;
@@ -120,6 +123,12 @@
           enabled = true;
           type = "block";
           description = "Block Telemetry";
+        }
+        {
+          url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn-only/hosts";
+          enabled = true;
+          type = "block";
+          description = "";
         }
       ];
     };

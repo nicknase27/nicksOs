@@ -5,7 +5,7 @@
 }: {
   services = {
     unbound = {
-      enable = true;
+      enable = false;
       settings = {
         server = {
           interface = ["127.0.0.1"];
@@ -16,6 +16,10 @@
           harden-dnssec-stripped = true;
           use-caps-for-id = false;
           prefetch = true;
+          cache-min-ttl = 0;
+          serve-expired = true;
+          msg-cache-size = 8;
+          rrset-cache-size = 16;
           edns-buffer-size = 1232;
 
           # Custom settings
@@ -27,8 +31,8 @@
           {
             name = ".";
             forward-addr = [
-              "9.9.9.9#dns.quad9.net"
-              "149.112.112.112#dns.quad9.net"
+              "1.1.1.1@853#cloudflare-dns.com"
+              "2606:4700:4700::1111@853#cloudflare-dns.com"
             ];
             forward-tls-upstream = true; # Protected DNS
           }
