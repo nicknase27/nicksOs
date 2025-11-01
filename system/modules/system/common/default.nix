@@ -4,6 +4,7 @@
     ./components/boot.nix
     ./components/maintenance.nix
     ./components/networking.nix
+    ./components/locale.nix
     ./components/user.nix
     ./components/pkgs.nix
 
