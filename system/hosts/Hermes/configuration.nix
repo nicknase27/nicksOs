@@ -11,7 +11,6 @@
 
     ../../modules/homelab
     ../../modules/homelab/keepalived/master.nix
-    ../../modules/system/server/components/wg-peer.nix
   ];
 
   users.users = {

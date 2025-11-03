@@ -10,7 +10,9 @@
     ./secrets.nix
 
     #../../modules/homelab
-    ../../modules/homelab/keepalived/master.nix
+    ../../modules/homelab/keepalived/backup.nix
+    #../../modules/system/server/components/wg-peer.nix
+    ### FIX THE KEYS
   ];
 
   users.users = {

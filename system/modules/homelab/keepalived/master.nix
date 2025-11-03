@@ -6,6 +6,14 @@
 }: {
   services = {
     keepalived = {
+      vrrpScripts = {
+        chk_pihole = {
+          script = "/etc/keepalived/check_pihole.sh";
+          interval = 5;
+          fall = 2;
+          rise = 1;
+        };
+      };
       vrrpInstances = {
         VI_1_IPV4 = {
           state = "MASTER";
@@ -17,11 +25,13 @@
           unicastPeers = [
             "192.168.178.202" ### CHANGE TO 215
           ];
-
           virtualIps = [
             {
               addr = "192.168.178.250/24";
             }
+          ];
+          trackScripts = [
+            "chk_pihole"
           ];
         };
 
@@ -35,14 +45,36 @@
           unicastPeers = [
             "fda0:be70:c013:0::202" ### CHANGE TO 215
           ];
-
           virtualIps = [
             {
               addr = "fda0:be70:c013::250/64";
             }
           ];
+          trackScripts = [
+            "chk_pihole"
+          ];
         };
       };
     };
+  };
+
+  environment.etc."keepalived/check_pihole.sh" = {
+    text = ''
+      #!/run/current-system/sw/bin/bash
+
+      set -euo pipefail
+
+      SERVICE="pihole-ftl.service"
+      SYSTEMCTL="/run/current-system/sw/bin/systemctl"
+
+      if "$SYSTEMCTL" is-active --quiet "$SERVICE"; then
+          exit 0
+      else
+          exit 1
+      fi
+    '';
+    mode = "0775";
+    user = "keepalived_script";
+    group = "keepalived_script";
   };
 }

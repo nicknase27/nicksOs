@@ -22,6 +22,7 @@
     compose2nix
     cifs-utils
     vscodium
+    easyeffects
     via
   ];
 
