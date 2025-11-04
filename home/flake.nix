@@ -7,11 +7,28 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dgop = {
+      url = "github:AvengeMedia/dgop";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dms-cli = {
+      url = "github:AvengeMedia/danklinux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    dankMaterialShell = {
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.dgop.follows = "dgop";
+      inputs.dms-cli.follows = "dms-cli";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
+    dankMaterialShell,
     ...
   }: {
     homeConfigurations = {
@@ -20,6 +37,7 @@
         modules = [
           ./hosts/Theseus/home.nix
           ./hosts/common.nix
+          dankMaterialShell.homeModules.dankMaterialShell.default
         ];
         extraSpecialArgs = {hostname = "Theseus";};
       };

@@ -7,5 +7,6 @@
     ./qutebrowser.nix
     ./rofi.nix
     ./vesktop.nix
+    ./dms.nix
   ];
 }
