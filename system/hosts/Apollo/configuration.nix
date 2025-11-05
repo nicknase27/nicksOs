@@ -9,10 +9,10 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
-    ../../modules/homelab/keepalived/backup.nix
+    ../../modules/homelab/shared
+    ../../modules/homelab/Apollo
     #../../modules/system/server/components/wg-peer.nix
     ### FIX THE KEYS
-    ../../modules/homelab/native/pihole
   ];
 
   users.users = {

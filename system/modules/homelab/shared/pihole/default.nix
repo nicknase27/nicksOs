@@ -80,9 +80,11 @@
             "192.168.178.250 vault.nicknase27.com"
             "192.168.178.250 storage.nicknase27.com"
             "192.168.178.250 pxmx.nicknase27.com"
+            "192.168.178.250 dash.nicknase27.com"
+            "192.168.178.250 grafana.nicknase27.com"
+            "192.168.178.250 prometheus.nicknase27.com"
             "192.168.178.250 hermes.lan"
             "192.168.178.20 theseus.lan"
-            "192.168.178.250 dash.nicknase27.com"
             "192.168.178.1 fritz.box"
           ];
         };

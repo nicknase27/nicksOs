@@ -4,10 +4,6 @@
   lib,
   ...
 }: {
-  imports = [
-    ./default.nix
-  ];
-
   services = {
     keepalived = {
       vrrpInstances = {

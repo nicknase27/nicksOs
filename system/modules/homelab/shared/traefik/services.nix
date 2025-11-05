@@ -95,6 +95,20 @@
                 ];
               };
             };
+            grafana = {
+              loadBalancer = {
+                servers = [
+                  {url = "http://192.168.178.215:3000";}
+                ];
+              };
+            };
+            prometheus = {
+              loadBalancer = {
+                servers = [
+                  {url = "http://192.168.178.215:9001";}
+                ];
+              };
+            };
           };
         };
       };

@@ -127,6 +127,22 @@
                 certResolver = "cloudflare";
               };
             };
+            grafana = {
+              rule = "Host(`grafana.nicknase27.com`)";
+              service = "grafana";
+              entryPoints = ["websecure"];
+              tls = {
+                certResolver = "cloudflare";
+              };
+            };
+            prometheus = {
+              rule = "Host(`prometheus.nicknase27.com`)";
+              service = "prometheus";
+              entryPoints = ["websecure"];
+              tls = {
+                certResolver = "cloudflare";
+              };
+            };
           };
         };
       };

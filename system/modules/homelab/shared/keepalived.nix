@@ -1,7 +1,4 @@
 {...}: {
-  imports = [
-  ];
-
   services = {
     keepalived = {
       enable = true;

@@ -9,8 +9,8 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
-    ../../modules/homelab
-    ../../modules/homelab/keepalived/master.nix
+    ../../modules/homelab/shared
+    ../../modules/homelab/Hermes
   ];
 
   users.users = {
