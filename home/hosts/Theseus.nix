@@ -1,10 +1,11 @@
 {
   config,
   pkgs,
+  hostname,
   ...
 }: {
   imports = [
-    ../../modules/desktop/default.nix
+    ../profiles/desktop.nix
   ];
 
   home.packages = with pkgs; [
@@ -25,10 +26,10 @@
   programs.fish = {
     functions = {
       rebuild = {
-        body = "sudo nixos-rebuild switch --flake ~/nicksOs/system/#Theseus";
+        body = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nicksOs/system/#${hostname}";
       };
       swap = {
-        body = "home-manager switch --flake ~/nicksOs/home/#nick@Theseus";
+        body = "home-manager switch --flake ${config.home.homeDirectory}/nicksOs/home/#nick@${hostname}";
       };
     };
   };

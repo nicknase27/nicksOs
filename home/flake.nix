@@ -35,8 +35,8 @@
       "nick@Theseus" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
-          ./hosts/Theseus/home.nix
-          ./hosts/common.nix
+          ./hosts/Theseus.nix
+          ./modules/shared
           dankMaterialShell.homeModules.dankMaterialShell.default
         ];
         extraSpecialArgs = {hostname = "Theseus";};
@@ -45,8 +45,8 @@
       "nick@Hermes" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
-          ./hosts/Hermes/home.nix
-          ./hosts/common.nix
+          ./hosts/Hermes.nix
+          ./modules/shared
         ];
         extraSpecialArgs = {hostname = "Hermes";};
       };
@@ -54,8 +54,8 @@
       "nick@Apollo" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
-          ./hosts/Apollo/home.nix
-          ./hosts/common.nix
+          ./hosts/Apollo.nix
+          ./modules/shared
         ];
         extraSpecialArgs = {hostname = "Apollo";};
       };
@@ -63,8 +63,8 @@
       "nick@Iris" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
         modules = [
-          ./hosts/Iris/home.nix
-          ./hosts/common.nix
+          ./hosts/Iris.nix
+          ./modules/shared
         ];
         extraSpecialArgs = {hostname = "Iris";};
       };

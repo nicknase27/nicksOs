@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  hostname,
   ...
 }: let
   myAliases = {
@@ -39,25 +40,25 @@ in {
       };
       functions = {
         nixcf = {
-          body = ''nvim (find -L "$HOME/nicksOs" -type f -not -path "*/.git/*" -o -path "$HOME/nicksOs/.git/config" | sed "s|$HOME/nicksOs/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/nicksOs/{}" | xargs -I{} echo "$HOME/nicksOs/{}")'';
+          body = ''nvim (find -L "${config.home.homeDirectory}/nicksOs" -type f -not -path "*/.git/*" -o -path "${config.home.homeDirectory}/nicksOs/.git/config" | sed "s|${config.home.homeDirectory}/nicksOs/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always ${config.home.homeDirectory}/nicksOs/{}" | xargs -I{} echo "${config.home.homeDirectory}/nicksOs/{}")'';
         };
         vimcf = {
-          body = ''nvim (find -L "$HOME/.config/nvim" -type f | sed "s|$HOME/.config/nvim/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/nvim/{}" | xargs -I{} echo "$HOME/.config/nvim/{}")'';
+          body = ''nvim (find -L "${config.home.homeDirectory}/.config/nvim" -type f | sed "s|${config.home.homeDirectory}/.config/nvim/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always ${config.home.homeDirectory}/.config/nvim/{}" | xargs -I{} echo "${config.home.homeDirectory}/.config/nvim/{}")'';
         };
-        sync-all = {
+        sa = {
           body = ''
             set hosts "Hermes" "Apollo" "Iris"
             for host in $hosts
               echo "Syncing to $host..."
-              rsync -a -q --delete --progress /home/nick/nicksOs/ $host:/home/nick/nicksOs/
+              rsync -a -q --delete --progress ${config.home.homeDirectory}/nicksOs/ $host:${config.home.homeDirectory}/nicksOs/
             end
           '';
         };
-        sync-os = {
+        so = {
           body = ''
             set host $argv[1]
               echo "Syncing to $host..."
-              rsync -a -q --delete --progress --rsh=ssh /home/nick/nicksOs/ $host:/home/nick/nicksOs/
+              rsync -a -q --delete --progress --rsh=ssh ${config.home.homeDirectory}/nicksOs/ $host:${config.home.homeDirectory}/nicksOs/
           '';
         };
       };

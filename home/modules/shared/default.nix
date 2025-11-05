@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ../modules/cli
   ];
 
   home.packages = with pkgs; [
