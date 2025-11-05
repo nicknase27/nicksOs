@@ -44,10 +44,9 @@ in {
         vimcf = {
           body = ''nvim (find -L "$HOME/.config/nvim" -type f | sed "s|$HOME/.config/nvim/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always $HOME/.config/nvim/{}" | xargs -I{} echo "$HOME/.config/nvim/{}")'';
         };
-        ### TODO: Add Apollo
         sync-all = {
           body = ''
-            set hosts "Hermes" "Iris"
+            set hosts "Hermes" "Apollo" "Iris"
             for host in $hosts
               echo "Syncing to $host..."
               rsync -a -q --delete --progress /home/nick/nicksOs/ $host:/home/nick/nicksOs/

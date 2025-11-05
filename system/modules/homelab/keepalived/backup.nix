@@ -4,6 +4,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./default.nix
+  ];
+
   services = {
     keepalived = {
       vrrpInstances = {
@@ -11,7 +15,7 @@
           state = "BACKUP";
           interface = "eno1";
           virtualRouterId = 51;
-          priority = 150;
+          priority = 100;
 
           unicastSrcIp = "192.168.178.215";
           unicastPeers = [
@@ -29,7 +33,7 @@
           state = "BACKUP";
           interface = "eno1";
           virtualRouterId = 52;
-          priority = 150;
+          priority = 100;
 
           unicastSrcIp = "fda0:be70:c013:0::215";
           unicastPeers = [

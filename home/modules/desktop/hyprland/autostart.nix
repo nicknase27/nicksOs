@@ -9,7 +9,7 @@
             #"swww img ~/Pictures/wall/wall.png --transition-type none &"
             #"waybar &"
             #"mako &"
-            ''bash -c "wl-paste --watch cliphist store &"''
+            #''bash -c "wl-paste --watch cliphist store &"''
           ];
         };
       };

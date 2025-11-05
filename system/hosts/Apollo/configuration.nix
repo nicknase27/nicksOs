@@ -9,10 +9,10 @@
     ./hardware-configuration.nix
     ./secrets.nix
 
-    #../../modules/homelab
     ../../modules/homelab/keepalived/backup.nix
     #../../modules/system/server/components/wg-peer.nix
     ### FIX THE KEYS
+    ../../modules/homelab/native/pihole
   ];
 
   users.users = {
@@ -32,34 +32,6 @@
 
   networking = {
     hostName = "Apollo";
-    useDHCP = lib.mkForce false;
-  };
-
-  networking = {
-    interfaces = {
-      eno1 = {
-        ipv4.addresses = [
-          {
-            address = "192.168.178.215";
-            prefixLength = 24;
-          }
-        ];
-        ipv6.addresses = [
-          {
-            address = "fda0:be70:c013:0::215";
-            prefixLength = 64;
-          }
-        ];
-      };
-    };
-    defaultGateway = {
-      address = "192.168.178.1";
-      interface = "eno1";
-    };
-    defaultGateway6 = {
-      address = "fda0:be70:c013::36e1:a9ff:fece:9ace";
-      interface = "eno1";
-    };
   };
 
   system.autoUpgrade = {

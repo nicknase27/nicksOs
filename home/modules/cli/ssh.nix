@@ -4,6 +4,10 @@
       enable = true;
       enableDefaultConfig = false;
       matchBlocks = {
+      	"Theseus" = {
+	  hostname = "192.168.178.20";
+	  user = "nick";
+	};
         "Hermes" = {
           hostname = "192.168.178.210";
           user = "nick";

@@ -14,7 +14,7 @@
       availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod"];
       kernelModules = [];
     };
-    kernelModules = [];
+    kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     kernelParams = [
       "loglevel=3"
@@ -28,18 +28,18 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/055ae256-dfaf-4957-8e92-2a494ffe37a3";
+    device = "/dev/disk/by-uuid/103cfc98-8d13-40a9-98b7-4b977cbfd05d";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/6E0B-096A";
+    device = "/dev/disk/by-uuid/4959-0930";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/a111746d-13c8-4b75-a5b9-85235f593a63";}
+    {device = "/dev/disk/by-uuid/82d565ba-89b2-4bf9-a19b-e00b16f289e1";}
   ];
 
   fileSystems."/mnt/share" = {
