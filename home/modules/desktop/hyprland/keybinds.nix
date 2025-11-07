@@ -25,7 +25,8 @@
             "$mainMod, W, exec, $browser"
             ", PRINT, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
-            "$mainMod, L, exec, hyprlock"
+            # "$mainMod, L, exec, hyprlock"
+            "$mainMod, L, exec, dms ipc call lock lock"
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
             "$mainMod, up, movefocus, u"

@@ -11,8 +11,6 @@
 
     ../../modules/homelab/shared
     ../../modules/homelab/Apollo
-    #../../modules/system/server/components/wg-peer.nix
-    ### FIX THE KEYS
   ];
 
   users.users = {

@@ -21,7 +21,7 @@
             dns2 = {
               loadBalancer = {
                 servers = [
-                  {url = "http://192.168.178.202:8080/admin";}
+                  {url = "http://192.168.178.215:8085/";}
                 ];
               };
             };

@@ -27,6 +27,15 @@ in {
       interactiveShellInit = ''
         set fish_greeting
       '';
+      shellInit = ''
+                if test "$TERM" = "xterm-kitty"
+            function ssh
+                TERM=xterm-256color command ssh $argv
+            end
+        end
+
+
+      '';
       shellAliases = myAliases;
       shellAbbrs = {
         "-h" = {

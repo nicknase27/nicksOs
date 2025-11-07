@@ -12,7 +12,7 @@
 
       peers = [
         {
-          # Hermes
+          # Apollo
           publicKey = "1FPKicG6SbiSTM1NgjO4OMTSe6GDlt8NbaIKZfv/vW8=";
           allowedIPs = ["10.10.0.2/32" "192.168.178.0/24"];
         }

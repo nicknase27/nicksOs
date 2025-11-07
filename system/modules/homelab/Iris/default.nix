@@ -1,0 +1,5 @@
+{...}: {
+  imports = [
+    ./wg-server.nix
+  ];
+}

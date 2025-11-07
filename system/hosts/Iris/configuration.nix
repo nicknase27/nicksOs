@@ -13,7 +13,7 @@
     ./disko.nix
     ./secrets.nix
 
-    ../../modules/system/server/components/wg-server.nix
+    ../../modules/homelab/Iris
   ];
 
   users.users = {
