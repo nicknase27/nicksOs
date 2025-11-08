@@ -23,12 +23,17 @@
       inputs.dgop.follows = "dgop";
       inputs.dms-cli.follows = "dms-cli";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     dankMaterialShell,
+    nvf,
     ...
   }: {
     homeConfigurations = {
@@ -37,6 +42,7 @@
         modules = [
           ./hosts/Theseus.nix
           ./modules/shared
+          nvf.homeManagerModules.default
           dankMaterialShell.homeModules.dankMaterialShell.default
         ];
         extraSpecialArgs = {hostname = "Theseus";};

@@ -41,9 +41,9 @@
           virtualRouterId = 52;
           priority = 150;
 
-          unicastSrcIp = "fda0:be70:c013:0::210";
+          unicastSrcIp = "fda0:be70:c013:0::210%eno1";
           unicastPeers = [
-            "fda0:be70:c013:0::215"
+            "fda0:be70:c013:0::215%eno1"
           ];
           virtualIps = [
             {

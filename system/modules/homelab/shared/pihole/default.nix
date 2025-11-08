@@ -20,12 +20,8 @@
 
       settings = {
         dns = {
-          upstreams = [
-            "1.1.1.1"
-            "2606:4700:4700::1111"
-          ];
+          upstreams = ["127.0.0.1#5335"]; # ← Points to Unbound
 
-          # Use non-default values / custom behavior
           CNAMEdeepInspect = true;
           blockESNI = true;
           EDNS0ECS = true;
@@ -40,6 +36,7 @@
           interface = "eno1";
           listeningMode = "All";
           queryLogging = true;
+
           revServers = [
             "true,192.168.178.0/24,192.168.178.1,fritz.box"
           ];
@@ -83,9 +80,12 @@
             "192.168.178.250 dash.nicknase27.com"
             "192.168.178.250 grafana.nicknase27.com"
             "192.168.178.250 prometheus.nicknase27.com"
-            "192.168.178.250 hermes.lan"
+            "192.168.178.250 uptime.nicknase27.com"
             "192.168.178.20 theseus.lan"
+            "192.168.178.210 hermes.lan"
+            "192.168.178.215 apollo.lan"
             "192.168.178.1 fritz.box"
+            "192.168.178.215 test.local"
           ];
         };
 

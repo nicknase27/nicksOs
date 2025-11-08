@@ -5,5 +5,6 @@
     ./wg-peer.nix
     ./grafana.nix
     ./prometheus
+    ./caddy.nix
   ];
 }

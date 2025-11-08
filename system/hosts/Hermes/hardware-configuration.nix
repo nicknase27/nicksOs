@@ -18,6 +18,13 @@
     extraModulePackages = [];
     kernelParams = [
       "loglevel=3"
+      "slab_nomerge"
+      "page_alloc.shuffle=1"
+      "pti=on"
+      "spec_store_bypass_disable=on"
+      "random.trust_cpu=off"
+      "debugfs=off"
+      "lockdep=off"
     ];
     kernel = {
       sysctl = {

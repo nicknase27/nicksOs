@@ -5,6 +5,7 @@
     ./keepalived.nix
     ./navidrome.nix
     ./nixarr.nix
+    ./traefik
 
     ./docker
   ];

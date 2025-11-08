@@ -7,5 +7,6 @@
     ./bat.nix
     ./eza.nix
     ./ssh.nix
+    #./nvf.nix
   ];
 }

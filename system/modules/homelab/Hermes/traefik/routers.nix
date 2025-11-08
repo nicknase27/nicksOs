@@ -143,6 +143,14 @@
                 certResolver = "cloudflare";
               };
             };
+            uptime = {
+              rule = "Host(`uptime.nicknase27.com`)";
+              service = "uptime";
+              entryPoints = ["websecure"];
+              tls = {
+                certResolver = "cloudflare";
+              };
+            };
           };
         };
       };
