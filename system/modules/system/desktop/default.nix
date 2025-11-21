@@ -7,7 +7,7 @@
     ./components/fonts.nix
     ./components/desktop.nix
     ./components/gaming.nix
-    #./components/virt.nix
+    ./components/virt.nix
     ./components/tools.nix
 
     # --- Services --- #

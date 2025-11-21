@@ -6,6 +6,7 @@ let
   Homelab = Hermes ++ Apollo;
 in {
   "smb.age".publicKeys = Theseus ++ Homelab;
+  "smb2.age".publicKeys = Theseus ++ Homelab;
   "vaultwarden-token.age".publicKeys = Homelab;
   "navidrome-env.age".publicKeys = Homelab;
   "wireguard-conf.age".publicKeys = Homelab;

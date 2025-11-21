@@ -31,26 +31,29 @@
         # Allow remote control via kitty remote protocol
         allow_remote_control = true;
         # Color scheme
-        foreground = "#c4c2c4";
-        background = "#0F0D12";
-        cursor = "#c4c2c4";
-        color0 = "#0F0D12";
-        color8 = "#898789";
-        color1 = "#FF6810";
-        color9 = "#FF6810";
-        color2 = "#ED6232";
-        color10 = "#ED6232";
-        color3 = "#A46354";
-        color11 = "#A46354";
-        color4 = "#CF6549";
-        color12 = "#CF6549";
-        color5 = "#717B8C";
-        color13 = "#717B8C";
-        color6 = "#7E828F";
-        color14 = "#7E828F";
-        color7 = "#c4c2c4";
-        color15 = "#c4c2c4";
+        # foreground = "#c4c2c4";
+        background = lib.mkForce "#0F0D12";
+        cursor = lib.mkForce "#c4c2c4";
+        # color0 = "#0F0D12";
+        # color8 = "#898789";
+        # color1 = "#FF6810";
+        # color9 = "#FF6810";
+        # color2 = "#ED6232";
+        # color10 = "#ED6232";
+        # color3 = "#A46354";
+        # color11 = "#A46354";
+        # color4 = "#CF6549";
+        # color12 = "#CF6549";
+        # color5 = "#717B8C";
+        # color13 = "#717B8C";
+        # color6 = "#7E828F";
+        # color14 = "#7E828F";
+        # color7 = "#c4c2c4";
+        # color15 = "#c4c2c4";
       };
+      extraConfig = ''
+        include colors.conf
+      '';
     };
   };
 }

@@ -4,9 +4,7 @@
   pkgs,
   modulesPath,
   ...
-}: let
-  smbCredFile = config.age.secrets.smb.path; # This will be /run/agenix/smb-cred or similar
-in {
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -28,7 +26,7 @@ in {
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["amdpu"];
+      videoDrivers = ["amdgpu"];
     };
   };
 
@@ -44,10 +42,14 @@ in {
     };
   };
 
+  services.udev.packages = with pkgs; [
+    via
+  ];
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/0bf56dc0-0612-4b7c-b280-bebce5a9bf8b";
     fsType = "btrfs";
-    options = ["subvol=@"];
+    options = ["subvol=@" "compress=zstd"];
   };
 
   fileSystems."/boot" = {
@@ -59,6 +61,7 @@ in {
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/3aaad780-66db-454e-84c5-e32ba0541d46";
     fsType = "btrfs";
+    options = ["compress=zstd"];
   };
 
   swapDevices = [
@@ -81,6 +84,12 @@ in {
     device = "//192.168.178.201/share";
     fsType = "cifs";
     options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
+  };
+
+  fileSystems."/mnt/smb2" = {
+    device = "//192.168.178.37/Daten";
+    fsType = "cifs";
+    options = ["credentials=${config.age.secrets.smb2.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
   };
 
   systemd.network.wait-online.enable = true;

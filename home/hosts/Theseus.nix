@@ -12,7 +12,6 @@
     yazi
     playerctl
     feishin
-    ungoogled-chromium
     qutebrowser
   ];
 
@@ -21,16 +20,5 @@
     package = pkgs.phinger-cursors;
     name = "phinger-cursors-dark";
     size = 26;
-  };
-
-  programs.fish = {
-    functions = {
-      rebuild = {
-        body = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nicksOs/system/#${hostname}";
-      };
-      swap = {
-        body = "home-manager switch --flake ${config.home.homeDirectory}/nicksOs/home/#nick@${hostname}";
-      };
-    };
   };
 }

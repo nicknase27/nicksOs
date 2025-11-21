@@ -59,7 +59,7 @@
           };
 
           rateLimit = {
-            count = 1000;
+            count = 10000;
             interval = 60;
           };
 
@@ -85,7 +85,7 @@
             "192.168.178.210 hermes.lan"
             "192.168.178.215 apollo.lan"
             "192.168.178.1 fritz.box"
-            "192.168.178.215 test.local"
+            "192.168.178.215 jelly.nicknase27.com"
           ];
         };
 
@@ -109,6 +109,7 @@
           domain = lib.mkForce "pi.hole";
           port = lib.mkForce "8085o,[::]:8085o,8443os,[::]:8443os";
           paths = {
+            #webhome = lib.mkForce "/admin/";
           };
         };
       };

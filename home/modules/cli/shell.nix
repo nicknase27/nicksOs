@@ -48,6 +48,12 @@ in {
         };
       };
       functions = {
+        rebuild = {
+          body = "sudo nixos-rebuild switch --flake ${config.home.homeDirectory}/nicksOs/system/#${hostname}";
+        };
+        swap = {
+          body = "home-manager switch --extra-experimental-features nix-command --extra-experimental-features flakes --flake ${config.home.homeDirectory}/nicksOs/home/#nick@${hostname}";
+        };
         nixcf = {
           body = ''nvim (find -L "${config.home.homeDirectory}/nicksOs" -type f -not -path "*/.git/*" -o -path "${config.home.homeDirectory}/nicksOs/.git/config" | sed "s|${config.home.homeDirectory}/nicksOs/||" | fzf --layout=reverse --height=60% --preview "bat -p --color=always ${config.home.homeDirectory}/nicksOs/{}" | xargs -I{} echo "${config.home.homeDirectory}/nicksOs/{}")'';
         };

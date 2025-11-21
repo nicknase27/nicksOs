@@ -36,6 +36,7 @@
 
           statusline.lualine.enable = true;
           autocomplete.nvim-cmp.enable = true;
+          autopairs.nvim-autopairs.enable = true;
         };
       };
     };

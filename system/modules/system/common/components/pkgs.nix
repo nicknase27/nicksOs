@@ -1,5 +1,8 @@
-{pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
     inputs.compose2nix.packages."${system}".default
@@ -31,5 +34,7 @@
     baobab
     bind
     wireguard-tools
+    progress
   ];
 }
+

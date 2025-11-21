@@ -7,6 +7,11 @@
         path = "/etc/credentials.txt";
         mode = "777";
       };
+      smb2 = {
+        file = ../../secrets/smb2.age;
+        path = "/etc/credentials2.txt";
+        mode = "777";
+      };
     };
     identityPaths = ["/etc/ssh/id_ed25519"];
   };

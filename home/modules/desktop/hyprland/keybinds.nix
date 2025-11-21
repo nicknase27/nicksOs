@@ -8,7 +8,7 @@
           "$fileManager" = "dolphin";
           "$menu" = "rofi -show drun";
           "$pmenu" = "rofi-rbw";
-          "$browser" = "chromium";
+          "$browser" = "chromium --ozone-platform=wayland --disable-features=WaylandWpColorManagerV1";
           "$mainMod" = "SUPER";
 
           bind = [
@@ -27,10 +27,16 @@
 
             # "$mainMod, L, exec, hyprlock"
             "$mainMod, L, exec, dms ipc call lock lock"
+
             "$mainMod, left, movefocus, l"
             "$mainMod, right, movefocus, r"
             "$mainMod, up, movefocus, u"
             "$mainMod, down, movefocus, d"
+
+            "$mainMod SHIFT, left, swapwindow, l"
+            "$mainMod SHIFT, right, swapwindow, r"
+            "$mainMod SHIFT, up, swapwindow, u"
+            "$mainMod SHIFT, down, swapwindow, d"
 
             "$mainMod, 1, workspace, 1"
             "$mainMod, 2, workspace, 2"

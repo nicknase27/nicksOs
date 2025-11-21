@@ -24,10 +24,11 @@
     vscodium
     easyeffects
     via
-  ];
-
-  services.udev.packages = with pkgs; [
-    via
+    media-downloader
+    (ungoogled-chromium.override {enableWideVine = true;})
+    ffmpeg-full
+    libva
+    libva-utils
   ];
 
   networking = {
