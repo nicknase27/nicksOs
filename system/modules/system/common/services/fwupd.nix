@@ -1,7 +1,8 @@
 {...}: {
   services = {
     fwupd = {
-      enable = true;
+      # enable = true;
+      enable = false;
     };
   };
 }

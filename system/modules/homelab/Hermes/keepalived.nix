@@ -23,7 +23,7 @@
 
           unicastSrcIp = "192.168.178.210";
           unicastPeers = [
-            "192.168.178.215"
+            "192.168.178.202"
           ];
           virtualIps = [
             {
@@ -43,7 +43,7 @@
 
           unicastSrcIp = "fda0:be70:c013:0::210%eno1";
           unicastPeers = [
-            "fda0:be70:c013:0::215%eno1"
+            "fda0:be70:c013:0::202%eno1"
           ];
           virtualIps = [
             {

@@ -1,11 +1,14 @@
 {...}: {
   imports = [
     ./vaultwarden.nix
-    ./cloudflared.nix
+    # ./cloudflared.nix
     ./keepalived.nix
-    ./navidrome.nix
+    # ./navidrome.nix
+    ./zerobyte.nix
+    ./immich.nix
     ./nixarr.nix
-    ./traefik
+    # ./traefik
+    ../Apollo/tailscale.nix
 
     ./docker
   ];

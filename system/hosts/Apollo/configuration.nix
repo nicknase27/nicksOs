@@ -26,6 +26,8 @@
   services.getty.helpLine = lib.mkForce "";
 
   environment.systemPackages = with pkgs; [
+    ffmpeg
+    yt-dlp
   ];
 
   networking = {

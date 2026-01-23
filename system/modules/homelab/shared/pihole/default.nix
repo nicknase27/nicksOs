@@ -64,28 +64,30 @@
           };
 
           hosts = [
-            "192.168.178.250 dns1.nicknase27.com"
-            "192.168.178.250 dns2.nicknase27.com"
-            "192.168.178.250 traefik.nicknase27.com"
-            "192.168.178.250 jellyseerr.nicknase27.com"
-            "192.168.178.250 music.nicknase27.com"
-            "192.168.178.250 prowlarr.nicknase27.com"
-            "192.168.178.250 radarr.nicknase27.com"
-            "192.168.178.250 sonarr.nicknase27.com"
-            "192.168.178.250 torrent.nicknase27.com"
-            "192.168.178.250 watch.nicknase27.com"
-            "192.168.178.250 vault.nicknase27.com"
-            "192.168.178.250 storage.nicknase27.com"
-            "192.168.178.250 pxmx.nicknase27.com"
-            "192.168.178.250 dash.nicknase27.com"
-            "192.168.178.250 grafana.nicknase27.com"
-            "192.168.178.250 prometheus.nicknase27.com"
-            "192.168.178.250 uptime.nicknase27.com"
+            "10.0.0.5 dns1.nicknase27.com"
+            "10.0.0.5 dns2.nicknase27.com"
+            "10.0.0.5 traefik.nicknase27.com"
+            "10.0.0.5 request.nicknase27.com"
+            "10.0.0.5 music.nicknase27.com"
+            "10.0.0.5 prowlarr.nicknase27.com"
+            "10.0.0.5 radarr.nicknase27.com"
+            "10.0.0.5 sonarr.nicknase27.com"
+            "10.0.0.5 torrent.nicknase27.com"
+            "10.0.0.5 watch.nicknase27.com"
+            "10.0.0.5 vault.nicknase27.com"
+            "10.0.0.5 storage.nicknase27.com"
+            "10.0.0.5 pve.nicknase27.com"
+            "10.0.0.5 dash.nicknase27.com"
+            "10.0.0.5 photos.nicknase27.com"
+            "10.0.0.5 zerobyte.nicknase27.com"
+            "10.0.0.5 remote.nicknase27.com"
+            "10.0.0.5 npm.nicknase27.com"
+            "10.0.0.5 books.nicknase27.com"
+            "10.0.0.5 audbooks.nicknase27.com"
             "192.168.178.20 theseus.lan"
             "192.168.178.210 hermes.lan"
             "192.168.178.215 apollo.lan"
             "192.168.178.1 fritz.box"
-            "192.168.178.215 jelly.nicknase27.com"
           ];
         };
 
@@ -115,24 +117,22 @@
       };
 
       lists = [
-        {
-          url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
-          enabled = true;
-          type = "block";
-          description = "Default block list";
-        }
-        {
-          url = "https://raw.githubusercontent.com/MoralCode/pihole-antitelemetry/main/telemetry-domains.txt";
-          enabled = true;
-          type = "block";
-          description = "Block Telemetry";
-        }
-        {
-          url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn-only/hosts";
-          enabled = true;
-          type = "block";
-          description = "";
-        }
+	# {
+	#     url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/gambling-porn/hosts";
+	#     enabled = true;
+	#     type = "block";
+	#     description = "";
+	# }
+	{
+	      url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts";
+	      enabled = true;
+	      type = "block";
+	}
+	{
+	      url = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn-only/hosts";
+	      enabled = true;
+	      type = "block";
+	}
       ];
     };
   };

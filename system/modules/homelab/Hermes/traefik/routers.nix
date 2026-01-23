@@ -151,6 +151,22 @@
                 certResolver = "cloudflare";
               };
             };
+	    remote = {
+              rule = "Host(`remote.nicknase27.com`)";
+              service = "remote";
+              entryPoints = ["websecure"];
+              tls = {
+                certResolver = "cloudflare";
+              };
+            };
+            photos = {
+              rule = "Host(`photos.nicknase27.com`)";
+              service = "photos";
+              entryPoints = ["websecure"];
+              tls = {
+                certResolver = "cloudflare";
+              };
+            };
           };
         };
       };

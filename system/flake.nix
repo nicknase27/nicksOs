@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
     nixarr.url = "github:rasmus-kirk/nixarr";
+
     compose2nix = {
       url = "github:aksiksi/compose2nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -14,6 +15,12 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    authentik-nix = {
+      url = "github:nix-community/authentik-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = {
@@ -22,6 +29,7 @@
     agenix,
     nixarr,
     compose2nix,
+    authentik-nix,
     disko,
     ...
   } @ inputs: {
@@ -45,6 +53,7 @@
           ./modules/system/server
           inputs.agenix.nixosModules.default
           inputs.nixarr.nixosModules.default
+	  inputs.authentik-nix.nixosModules.default
         ];
       };
       Apollo = nixpkgs.lib.nixosSystem {

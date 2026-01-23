@@ -42,10 +42,22 @@
     {device = "/dev/disk/by-uuid/82d565ba-89b2-4bf9-a19b-e00b16f289e1";}
   ];
 
-  fileSystems."/mnt/share" = {
-    device = "//192.168.178.201/share";
-    fsType = "cifs";
-    options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
+  # fileSystems."/mnt/storage" = {
+  #   device = "//192.168.178.3/tank1";
+  #   fsType = "cifs";
+  #   options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
+  # };
+  
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      libva-vdpau-driver
+      libvdpau-va-gl
+      intel-compute-runtime
+      vpl-gpu-rt
+    ];
   };
 
   systemd.network.wait-online.enable = true;

@@ -15,4 +15,5 @@ in {
   "cloudflare-creds.age".publicKeys = Homelab;
   "pihole-token.age".publicKeys = Homelab;
   "homarr-token.age".publicKeys = Homelab;
+  "authentik_env.age".publicKeys = Homelab;
 }

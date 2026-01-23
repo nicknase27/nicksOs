@@ -2,9 +2,11 @@
   imports = [
     ./uptimekuma.nix
     ./keepalived.nix
-    ./wg-peer.nix
+    ./tailscale.nix
+    # ./wg-peer.nix
     ./grafana.nix
     ./prometheus
     ./caddy.nix
+    # ./mc.nix
   ];
 }

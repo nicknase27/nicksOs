@@ -14,7 +14,7 @@
     settings = {
       Address = "0.0.0.0";
       Port = 4533;
-      MusicFolder = "/mnt/share/media/music";
+      MusicFolder = "/mnt/storage/media/music";
       AlbumPlayCountMode = "normalized";
       AutoImportPlaylists = false;
       DefaultTheme = "Spotify-ish";
@@ -35,8 +35,8 @@
 
   systemd.services = {
     navidrome = {
-      after = ["mnt-share.mount"];
-      requires = ["mnt-share.mount"];
+      after = ["mnt-storage.mount"];
+      requires = ["mnt-storage.mount"];
     };
   };
 

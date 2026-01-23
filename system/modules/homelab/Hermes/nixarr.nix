@@ -8,7 +8,7 @@
   nixarr = {
     enable = true;
 
-    mediaDir = "/mnt/share/media/nixarr";
+    mediaDir = "/mnt/storage/media/etc";
     stateDir = "/data/media/.state/nixarr";
 
     vpn = {

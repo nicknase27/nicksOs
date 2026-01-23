@@ -49,10 +49,10 @@
     {device = "/dev/disk/by-uuid/a111746d-13c8-4b75-a5b9-85235f593a63";}
   ];
 
-  fileSystems."/mnt/share" = {
-    device = "//192.168.178.201/share";
+  fileSystems."/mnt/storage" = {
+    device = "//192.168.178.3/tank1";
     fsType = "cifs";
-    options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev"];
+    options = ["credentials=${config.age.secrets.smb.path}" "x-systemd.automount" "nofail" "noperm" "x-systemd.after=network-online.target" "x-systemd.automount-options=--timeout=30" "_netdev" ];
   };
 
   systemd.network.wait-online.enable = true;

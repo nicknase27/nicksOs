@@ -41,6 +41,10 @@
         path = "/var/lib/secrets/homarr-token.env";
         mode = "777";
       };
+      authentik_env = {
+        file = ../../secrets/authentik_env.age;
+	path = "/var/lib/secrets/authentik_env.env";
+      };
     };
     identityPaths = ["/etc/ssh/id_ed25519"];
   };

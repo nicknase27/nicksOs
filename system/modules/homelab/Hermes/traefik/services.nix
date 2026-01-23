@@ -70,7 +70,7 @@
             storage = {
               loadBalancer = {
                 servers = [
-                  {url = "http://192.168.178.210:80";}
+                  {url = "http://192.168.178.3:80";}
                 ];
               };
             };
@@ -113,6 +113,20 @@
               loadBalancer = {
                 servers = [
                   {url = "http://192.168.178.215:3001";}
+                ];
+              };
+            };
+	    remote = {
+              loadBalancer = {
+                servers = [
+                  {url = "http://10.0.0.4:8080/guacamole";}
+                ];
+              };
+            };
+            photos = {
+              loadBalancer = {
+                servers = [
+                  {url = "http://192.168.178.210:2283";}
                 ];
               };
             };

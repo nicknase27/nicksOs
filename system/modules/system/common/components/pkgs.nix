@@ -35,6 +35,8 @@
     bind
     wireguard-tools
     progress
+    ffmpeg
+    yazi
   ];
 }
 

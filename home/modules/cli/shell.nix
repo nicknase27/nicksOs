@@ -62,7 +62,7 @@ in {
         };
         sa = {
           body = ''
-            set hosts "Hermes" "Apollo" "Iris"
+            set hosts "Theseus" "Hermes" "Apollo" "Iris"
             for host in $hosts
               echo "Syncing to $host..."
               rsync -a -q --delete --progress ${config.home.homeDirectory}/nicksOs/ $host:${config.home.homeDirectory}/nicksOs/
